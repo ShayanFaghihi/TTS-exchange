@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/style.css">
+    <title>TTS</title>
+</head>
+<body>
+    <main class="main-wrapper">
+        <div class="exchange">
+            <div class="container">
+                <div class="exchange__filter"></div>
+                <!-- Main Transaction Tables  -->
+                <div class="exchange__tables row">
+                        <!-- Buy Transaction -->
+                        <div class="exchange__tables--buy col">
+
+                            <!-- The start and end point currencies -->
+                            <!-- These variables must be set based on customer choise -->
+                            <h5 class="exchange__header">
+                                <span>SUN</span> <!--First Variable (start) -->
+                                <span> / USDT</span> ≈  <!--Second Variable -->
+                                <span>11.199900</span>  <!--Currencies Rate-->
+                            </h5>
+
+                          
+
+                            <form action="" method="post" class="exchange__form">
+                                <div class="exchange__form--field">
+                                    <input type="text" name="ex-buy-price" id="" class="exchange__form--input"  value="11.1999">
+                                </div>
+                                <div class="exchange__form--field">   
+                                    <input type="text" name="ex-buy-price" id="" class="exchange__form--input"  value="11.1999">
+                                </div>
+
+                                <div class="exchange__form--result">
+                                    <p><span>Trading Amount</span>：0 <b>USDT</b> </p><!--Output Variable-->
+                                </div>
+
+                                <div style="text-align: center;">
+                                    <button type="button" class="btn btn-buy"><span>BUY </span><span>SUN</span></button>
+
+                                </div>
+                                <div class="subtitle txt-center"><span>0 trading fee for all orders</span></div>
+                            </form>
+
+                        </div>
+                        <!-- End of Buy Table -->
+
+
+                         <!-- SELL Transaction -->
+                        <div class="exchange__tables--sell col">
+
+                            <!-- The start and end point currencies -->
+                            <!-- These variables must be set based on customer choise -->
+                            <h5 class="exchange__header">
+                                <span>SUN</span> <!--First Variable (start) -->
+                                <span> / USDT</span> ≈  <!--Second Variable -->
+                                <span>11.199900</span>  <!--Currencies Rate-->
+                            </h5>
+
+                         
+                            <form action="" method="post" class="exchange__form">
+                                <div class="exchange__form--field sell-field">
+                                    <input type="text" name="ex-sell-price" id="" class="exchange__form--input"  value="11.1999">
+                                </div>
+                                <div class="exchange__form--field sell-field">
+                                    <input type="text" name="ex-sell-amount" id="" class="exchange__form--input"  value="0">
+                                </div>
+
+                                <div class="exchange__form--result">
+                                    <p><span>Trading Amount</span>：0 <b>USDT</b> </p><!--Output Variable-->
+                                </div>
+
+                                <div style="text-align: center;">
+                                    <button type="button" class="btn btn-sell"><span>SELL </span><span>SUN</span></button>
+                                </div>
+                                <div class="subtitle txt-center"><span>0 trading fee for all orders</span></div>
+                            </form>
+
+                        </div>
+                        <!-- End of SELL Table -->
+
+
+                    </div>
+               
+                <div class="exchange__filter"></div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
