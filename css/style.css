@@ -55,9 +55,9 @@ h1 {
     font-weight: bold;
 }
 
-  img {
-    max-width: 100%;
-  }
+img {
+  max-width: 100%;
+}
 
 
 .btn {
@@ -99,7 +99,7 @@ h1 {
 }
 
 .container {
-    width: min(80%, 1400px);
+    width: min(80%, 1174px);
     margin: 0 auto;
 }
 
@@ -112,8 +112,7 @@ h1 {
 .pos-right {right:0;}
 
 .col {
-  width: clamp(210px, 100%, 348px);
-  margin-bottom: 8rem;
+  width: clamp(210px, 100%, 340px);
   margin: auto;
 }
 
@@ -124,8 +123,24 @@ h1 {
   .col + .col {
     margin-left: 5rem;
   }
+
+  tr + tr {
+    margin-left: 2rem;
+  }
 }
 
+
+header {
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  top: 35%;
+}
+
+h1 {
+  font-size: 5rem;
+  color: #fff;
+}
 
 .main-wrapper {
   padding: 100px 0;
@@ -144,6 +159,7 @@ h1 {
   padding: 2rem 2rem;
   box-shadow: -7px -7px 20px 3px var(--shadow-light),
                7px 7px 22px 3px var(--shadow--dark);
+  margin-bottom: 5rem;
 }
 
 .exchange__header {
@@ -248,6 +264,13 @@ h1 {
   background-image: linear-gradient(to right bottom, #fff, var(--gold) 60%);
 } */
 
+.exchange__filter {
+  margin-bottom: 5rem;
+}
+
+#token-table {
+  margin: 0 auto;
+}
 
 .exchange__form--result {
   border: none;
@@ -332,15 +355,3 @@ canvas{
 
 
 
-
-header {
-  position: absolute;
-  top:50%;
-  left: 50%;
-  transform: translate(-50%,50%);
-}
-
-h1 {
-  font-size: 5rem;
-  color: #fff;
-}

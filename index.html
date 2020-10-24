@@ -30,7 +30,7 @@
                         <div class="exchange__table">
                             <table id="token-table">   
                                 <tbody>
-                                    <tr id="token" onclick="token(this.id)">
+                                    <tr id="token" onclick="token(this.id)" class="token-selected">
                                         <td>TRX</td>
                                         <td>/</td>
                                         <td>USDT</td>
@@ -63,7 +63,7 @@
                             <!-- The start and end point currencies -->
                             <!-- These variables must be set based on customer choise -->
                             <h5 class="exchange__header">
-                                <span class="pri-token">SUN</span> <!--First Variable (start) -->
+                                <span class="pri-token">TRX</span> <!--First Variable (start) -->
                                 / <span class="sec-token">  USDT</span> ≈  <!--Second Variable -->
                                 <span id="value">11.199900</span>  <!--Currencies Rate-->
                             </h5>
@@ -79,7 +79,7 @@
                                 <div class="exchange__form--field">  
                                     <span class="exchange__form--label label-gold pos-left">Amount</span> 
                                     <input type="text" name="ex-buy-price" id="" class="exchange__form--input"  value="11.1999">
-                                    <span class="exchange__form--label label-gold pri-token pos-right">SUN</span>
+                                    <span class="exchange__form--label label-gold pri-token pos-right">TRX</span>
                                 </div>
 
                                 <div class="exchange__form--result">
@@ -87,7 +87,7 @@
                                 </div>
 
                                 <div style="text-align: center;">
-                                    <button type="button" class="btn btn-buy"><span>BUY </span><span class="pri-token">SUN</span></button>
+                                    <button type="button" class="btn btn-buy"><span>BUY </span><span class="pri-token">TRX</span></button>
 
                                 </div>
                                 <div class="subtitle txt-center"><span>0 trading fee for all orders</span></div>
@@ -103,7 +103,7 @@
                             <!-- The start and end point currencies -->
                             <!-- These variables must be set based on customer choise -->
                             <h5 class="exchange__header">
-                                <span class="pri-token">SUN</span> <!--First Variable (start) -->
+                                <span class="pri-token">TRX</span> <!--First Variable (start) -->
                                 / <span class="sec-token">USDT</span> ≈  <!--Second Variable -->
                                 <span>11.199900</span>  <!--Currencies Rate-->
                             </h5>
@@ -118,7 +118,7 @@
                                 <div class="exchange__form--field sell-field">
                                     <span class="exchange__form--label label-grey pos-left">Amount</span> 
                                     <input type="text" name="ex-sell-amount" id="" class="exchange__form--input"  value="0">
-                                    <span class="exchange__form--label label-grey pri-token pos-right">SUN</span>
+                                    <span class="exchange__form--label label-grey pri-token pos-right">TRX</span>
                                 </div>
 
                                 <div class="exchange__form--result">
@@ -126,7 +126,7 @@
                                 </div>
 
                                 <div style="text-align: center;">
-                                    <button type="button" class="btn btn-sell"><span>SELL </span><span class="pri-token">SUN</span></button>
+                                    <button type="button" class="btn btn-sell"><span>SELL </span><span class="pri-token">TRX</span></button>
                                 </div>
                                 <div class="subtitle txt-center"><span>0 trading fee for all orders</span></div>
                             </form>
