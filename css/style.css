@@ -53,12 +53,18 @@ h1, h2, h3, h4, h5, h6,input, textarea {
 
 h1 {
     font-weight: bold;
+    font-size: 5rem;
+    color: #fff;
 }
 
 img {
   max-width: 100%;
 }
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--grey-font);
+  opacity: 1; /* Firefox */
+}
 
 .btn {
   outline: none;
@@ -135,11 +141,6 @@ header {
   transform: translateX(-50%);
   left: 50%;
   top: 35%;
-}
-
-h1 {
-  font-size: 5rem;
-  color: #fff;
 }
 
 .main-wrapper {
