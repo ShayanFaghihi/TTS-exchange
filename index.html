@@ -8,39 +8,86 @@
     <title>TTS</title>
 </head>
 <body>
+    <!-- particles.js container -->
+<div id="particles-js"></div>
+
+<!-- scripts -->
+<script src="../particles.js"></script>
+<script src="js/app.js"></script>
+
+
+
+<header>
+    <h1>Welcome</h1>
+</header>
+
     <main class="main-wrapper">
         <div class="exchange">
             <div class="container">
-                <div class="exchange__filter"></div>
+                <div class="exchange__filter">
+                    <div class="container">
+
+                        <div class="exchange__table">
+                            <table id="token-table">   
+                                <tbody>
+                                    <tr id="token" onclick="token(this.id)">
+                                        <td>TRX</td>
+                                        <td>/</td>
+                                        <td>USDT</td>
+                                    </tr>
+                                    <tr id="token" onclick="token(this.id)">
+                                        <td>TTS</td>
+                                        <td>/</td>
+                                        <td>USDT</td>
+                                    </tr>
+                                    <tr id="token" onclick="token(this.id)">
+                                        <td>TTS</td>
+                                        <td>/</td>
+                                        <td>TRX</td>
+                                    </tr>
+
+                                </tbody>     
+                            </table>
+                        </div>
+
+                        
+
+                    </div>
+                </div>
                 <!-- Main Transaction Tables  -->
                 <div class="exchange__tables row">
+
                         <!-- Buy Transaction -->
-                        <div class="exchange__tables--buy col">
+                        <div class="exchange__table col">
 
                             <!-- The start and end point currencies -->
                             <!-- These variables must be set based on customer choise -->
                             <h5 class="exchange__header">
-                                <span>SUN</span> <!--First Variable (start) -->
-                                <span> / USDT</span> ≈  <!--Second Variable -->
-                                <span>11.199900</span>  <!--Currencies Rate-->
+                                <span class="pri-token">SUN</span> <!--First Variable (start) -->
+                                / <span class="sec-token">  USDT</span> ≈  <!--Second Variable -->
+                                <span id="value">11.199900</span>  <!--Currencies Rate-->
                             </h5>
 
                           
 
                             <form action="" method="post" class="exchange__form">
-                                <div class="exchange__form--field">
+                                <div class="exchange__form--field" >
+                                    <span class="exchange__form--label label-gold pos-left">Price</span>
                                     <input type="text" name="ex-buy-price" id="" class="exchange__form--input"  value="11.1999">
+                                    <span class="exchange__form--label label-gold sec-token pos-right">USDT</span>
                                 </div>
-                                <div class="exchange__form--field">   
+                                <div class="exchange__form--field">  
+                                    <span class="exchange__form--label label-gold pos-left">Amount</span> 
                                     <input type="text" name="ex-buy-price" id="" class="exchange__form--input"  value="11.1999">
+                                    <span class="exchange__form--label label-gold pri-token pos-right">SUN</span>
                                 </div>
 
                                 <div class="exchange__form--result">
-                                    <p><span>Trading Amount</span>：0 <b>USDT</b> </p><!--Output Variable-->
+                                    <p><span>Trading Amount</span>：0 <b class="sec-token">USDT</b> </p><!--Output Variable-->
                                 </div>
 
                                 <div style="text-align: center;">
-                                    <button type="button" class="btn btn-buy"><span>BUY </span><span>SUN</span></button>
+                                    <button type="button" class="btn btn-buy"><span>BUY </span><span class="pri-token">SUN</span></button>
 
                                 </div>
                                 <div class="subtitle txt-center"><span>0 trading fee for all orders</span></div>
@@ -51,31 +98,35 @@
 
 
                          <!-- SELL Transaction -->
-                        <div class="exchange__tables--sell col">
+                        <div class="exchange__table col">
 
                             <!-- The start and end point currencies -->
                             <!-- These variables must be set based on customer choise -->
                             <h5 class="exchange__header">
-                                <span>SUN</span> <!--First Variable (start) -->
-                                <span> / USDT</span> ≈  <!--Second Variable -->
+                                <span class="pri-token">SUN</span> <!--First Variable (start) -->
+                                / <span class="sec-token">USDT</span> ≈  <!--Second Variable -->
                                 <span>11.199900</span>  <!--Currencies Rate-->
                             </h5>
 
                          
                             <form action="" method="post" class="exchange__form">
                                 <div class="exchange__form--field sell-field">
+                                    <span class="exchange__form--label label-grey pos-left">Price</span>
                                     <input type="text" name="ex-sell-price" id="" class="exchange__form--input"  value="11.1999">
+                                    <span class="exchange__form--label label-grey sec-token pos-right">USDT</span>
                                 </div>
                                 <div class="exchange__form--field sell-field">
+                                    <span class="exchange__form--label label-grey pos-left">Amount</span> 
                                     <input type="text" name="ex-sell-amount" id="" class="exchange__form--input"  value="0">
+                                    <span class="exchange__form--label label-grey pri-token pos-right">SUN</span>
                                 </div>
 
                                 <div class="exchange__form--result">
-                                    <p><span>Trading Amount</span>：0 <b>USDT</b> </p><!--Output Variable-->
+                                    <p><span>Trading Amount</span>：0 <b class="sec-token">USDT</b> </p><!--Output Variable-->
                                 </div>
 
                                 <div style="text-align: center;">
-                                    <button type="button" class="btn btn-sell"><span>SELL </span><span>SUN</span></button>
+                                    <button type="button" class="btn btn-sell"><span>SELL </span><span class="pri-token">SUN</span></button>
                                 </div>
                                 <div class="subtitle txt-center"><span>0 trading fee for all orders</span></div>
                             </form>
@@ -90,5 +141,6 @@
             </div>
         </div>
     </main>
+    <script src="js/main.js"></script>
 </body>
 </html>

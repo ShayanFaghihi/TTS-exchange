@@ -21,6 +21,8 @@
     --shadow-light : rgba(239, 239, 239,.2);
     --shadow--dark: rgba(0,0,0,.3);
 
+    --pri-token : "shayan";
+
   }
 
 
@@ -40,7 +42,6 @@
     background-color: var(--green-main);
     color: var(--grey-font);
     line-height: 1.7;
-    padding: 3rem; 
     font-size: 1rem;
 }
   
@@ -107,6 +108,8 @@ h1 {
   justify-content: center;
 }
 
+.pos-left {left:0;}
+.pos-right {right:0;}
 
 .col {
   width: clamp(210px, 100%, 348px);
@@ -123,25 +126,22 @@ h1 {
   }
 }
 
+
+.main-wrapper {
+  padding: 100px 0;
+}
+
+
 /* Tables */
 .exchange__tables {
   position: relative;;
 }
 
-.exchange__tables--buy,
-.exchange__tables--sell {
+.exchange__table {
   border-radius: 20px;
   outline: none;
   background: none;
   padding: 2rem 2rem;
-}
-
-.exchange__tables--buy {
-  box-shadow: -7px -7px 20px 3px var(--shadow-light),
-               7px 7px 22px 3px var(--shadow--dark);
-}
-
-.exchange__tables--sell {
   box-shadow: -7px -7px 20px 3px var(--shadow-light),
                7px 7px 22px 3px var(--shadow--dark);
 }
@@ -162,11 +162,18 @@ h1 {
   position: relative;
 }
 
+.exchange__form--label {
+  padding: .8rem 1rem;
+  position: absolute;
+  top: 0;
+}
+
 .label-gold,
 .btn-buy {
   background-image: linear-gradient(to right bottom, #fff, var(--gold) 60%);
   color: var(--brown);
 }
+
 
 .label-grey,
 .btn-sell,
@@ -178,7 +185,7 @@ h1 {
 
 .exchange__form--input {
   width: 100%;
-  padding: 1rem 65px;
+  padding: 1rem 77px;
   border-radius: 7px;
   outline: none;
   border: none;
@@ -191,7 +198,7 @@ h1 {
   margin-left: auto;
 }
 
-.exchange__form--field:first-child::before,
+/* .exchange__form--field:first-child::before,
 .exchange__form--field::before {
   position: absolute;
   top: 50%;
@@ -200,10 +207,10 @@ h1 {
   font-size: 1rem;
   outline: none;
   border-radius: 7px;
-}
+} */
 
-.exchange__form--field:first-child::after,
-.exchange__form--field::after {
+/* .exchange__form--field:first-child::after, */
+/* .exchange__form--field::after {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -225,21 +232,21 @@ h1 {
   left: 0;
   color: var(--brown);
   background-image: linear-gradient(to right bottom, #fff, var(--gold) 60%);
-}
+} */
 
-.exchange__form--field:first-child::after {
+/* .exchange__form--field:first-child::after {
   content: "USDT";
   right: 0;
   color: var(--brown);
   background-image: linear-gradient(to right bottom, #fff, var(--gold) 60%);
-}
+} */
 
-.exchange__form--field::after {
-  content: "SUN";
-  right: 0;
+/* .exchange__form--field::after {
+  content: var(--pri-token);
+  right:0 ;
   color: var(--brown);
   background-image: linear-gradient(to right bottom, #fff, var(--gold) 60%);
-}
+} */
 
 
 .exchange__form--result {
@@ -256,4 +263,84 @@ h1 {
   box-shadow: inset 5px 5px 5px 2px var(--shadow--dark),
               inset  -5px -5px 5px 2px var(--shadow-light)
   ;
+}
+
+#token,
+.token-selected {
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 7px;
+  outline: none;
+  border: none;
+  padding: .5rem;
+}
+
+#token {
+
+  box-shadow: 2px 2px 5px 2px var(--shadow--dark),
+  -2px -2px 5px 2px var(--shadow-light);
+}
+.token-selected {
+  background: var(--grey-main);
+  color: var(--grey-font-dark);
+  font-weight: 700;
+  box-shadow: inset 5px 5px 5px 2px var(--shadow--dark),
+              inset -2px -2px 5px 2px var(--shadow-light) !important;
+}
+/* -------------------------------- */
+
+canvas{
+  display:block;
+  vertical-align: bottom;
+}
+
+
+
+
+.js-count-particles{
+  font-size: 1.1em;
+}
+
+#stats,
+.count-particles{
+  -webkit-user-select: none;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+#stats{
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+}
+
+.count-particles{
+  border-radius: 0 0 3px 3px;
+}
+
+
+/* ---- particles.js container ---- */
+
+#particles-js{
+  width: 100%;
+  height: 70vh;
+  background-color: var(--green-main);
+  background-image: url('');
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+
+
+
+header {
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,50%);
+}
+
+h1 {
+  font-size: 5rem;
+  color: #fff;
 }
