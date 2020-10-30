@@ -66,6 +66,15 @@ img {
   opacity: 1; /* Firefox */
 }
 
+a {
+  text-decoration: none;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
 .btn {
   outline: none;
   border: none;
@@ -89,9 +98,12 @@ img {
   box-shadow:  2px 2px 6px 3px var(--shadow-light),
                 -4px -4px 6px 3px var(--shadow--dark)
   ;
-  margin-top: 2rem;
 }
 
+.btn-light {
+  background-color: var(--gold);
+  color: #fff;
+}
 
 .txt-center {
   text-align: center;
@@ -111,7 +123,7 @@ img {
 
 .row {
   display: block;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .pos-left {left:0;}
@@ -135,13 +147,55 @@ img {
   }
 }
 
+/* -------------------------------------- */
 
-header {
+        /* Header */
+/* -------------------------------------- */
+
+
+/* Navigation */
+
+.navigation {
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  width: 100%;
+}
+
+.logo {
+  vertical-align: middle;
+  width: 100px;
+}
+
+.nav {
+  width: 100%;
+}
+.nav__list {
+  list-style: none;
+  align-self: center;
+}
+
+.nav__list--primary {
+  margin: 0 auto;
+}
+
+.nav__item {
+  margin-right: 2rem;
+}
+.nav__link {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.hero {
   position: absolute;
   transform: translateX(-50%);
   left: 50%;
   top: 35%;
+
 }
+
+
 
 .main-wrapper {
   padding: 100px 0;
