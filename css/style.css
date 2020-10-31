@@ -200,10 +200,12 @@ a {
   color: #fff;
   font-size: 1.2rem;
   transition: all .3s;
+  text-decoration: none;
 }
 
 .nav__link:hover {
   color: var(--gold);
+  text-decoration: none;
 }
 
 .btn-lang {
@@ -324,56 +326,6 @@ a {
   margin-right: auto;
   margin-left: auto;
 }
-
-/* .exchange__form--field:first-child::before,
-.exchange__form--field::before {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 1rem .5rem 1rem .5rem;
-  font-size: 1rem;
-  outline: none;
-  border-radius: 7px;
-} */
-
-/* .exchange__form--field:first-child::after, */
-/* .exchange__form--field::after {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 1rem .5rem 1rem .5rem;
-  font-size: 1rem;
-  outline: none;
-  border-radius: 7px;
-}
-
-.exchange__form--field:first-child::before {
-  content: "Price";
-  left: 0;
-  color: var(--brown);
-  background-image: linear-gradient(to right bottom, #fff, var(--gold) 60%);
-}
-
-.exchange__form--field::before {
-  content: "Amount";
-  left: 0;
-  color: var(--brown);
-  background-image: linear-gradient(to right bottom, #fff, var(--gold) 60%);
-} */
-
-/* .exchange__form--field:first-child::after {
-  content: "USDT";
-  right: 0;
-  color: var(--brown);
-  background-image: linear-gradient(to right bottom, #fff, var(--gold) 60%);
-} */
-
-/* .exchange__form--field::after {
-  content: var(--pri-token);
-  right:0 ;
-  color: var(--brown);
-  background-image: linear-gradient(to right bottom, #fff, var(--gold) 60%);
-} */
 
 .exchange__filter {
   margin-bottom: 5rem;

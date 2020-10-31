@@ -42,10 +42,14 @@
                         <i class="fas fa-globe"></i> Language
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item reload" href="#en">English</a>
-                        <a class="dropdown-item reload" href="#fa">فارسی</a>
-                        <a class="dropdown-item reload" href="#es">Span</a>
+                        <a class="dropdown-item reload" href="#en" language='en'>English</a>
+                        <a class="dropdown-item reload" href="#fa" language='fa'>فارسی</a>
+                        <a class="dropdown-item reload" href="#es" language='es'>Spanish</a>
                     </div>
+
+    
+                        
+
                 </div>
 
     
@@ -64,8 +68,8 @@
         
         <nav class="mobile-nav">
             <ul class="mobile-nav__list d-flex">
-                <li class="mobile-nav__item"><a href="" class="mobile-nav__link">Contract</a></li>
-                <li class="mobile-nav__item"><a href="" class="mobile-nav__link">White Paper</a></li>
+                <li class="mobile-nav__item"><a href="" class="mobile-nav__link" id="contract">Contract</a></li>
+                <li class="mobile-nav__item"><a href="" class="mobile-nav__link" id="whitePaper">White Paper</a></li>
             </ul>
         </nav>
         <div class="mobile-nav__lang">
@@ -73,11 +77,11 @@
                 <button class="btn-lang btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-globe"></i> 
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item reload" href="#en">English</a>
                     <a class="dropdown-item reload" href="#fa">فارسی</a>
-                    <a class="dropdown-item reload" href="#">Something else here</a>
-                </div>
+                    <a class="dropdown-item reload" href="#es">Spanish</a>
+                </div> -->
             </div>
         </div>
 
@@ -86,7 +90,7 @@
 <!-- Hero Box -->
    <div class="hero">
        <div class="container">
-           <h1 class="txt-center">Welcome</h1>
+           <h1 class="txt-center" id="header">Welcome</h1>
            <p id="cta" class="txt-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur accusantium minima modi soluta perspiciatis? Eligendi error dignissimos blanditiis eveniet laborum amet omnis, sunt culpa facere nisi beatae, ipsam totam veritatis.</p>
        </div>
 
@@ -146,25 +150,25 @@
                             <!-- Exchange Form -->
                             <form action="" method="post" class="exchange__form">
                                 <div class="exchange__form--field" >
-                                    <span class="exchange__form--label label-gold pos-left" id="priceBuy">Price</span>
+                                    <span class="exchange__form--label label-gold pos-left" id="price">Price</span>
                                     <input type="text" name="ex-buy-price" id="" class="exchange__form--input"  value="11.199" placeholder="">
                                     <span class="exchange__form--label label-gold sec-token pos-right">TRX</span>
                                 </div>
                                 <div class="exchange__form--field">  
-                                    <span class="exchange__form--label label-gold pos-left" id="amountBuy">Amount</span> 
+                                    <span class="exchange__form--label label-gold pos-left" id="amount">Amount</span> 
                                     <input type="text" name="ex-buy-price" id="" class="exchange__form--input"  value="" placeholder="Trading Amount">
                                     <span class="exchange__form--label label-gold pri-token pos-right">TTS</span>
                                 </div>
 
                                 <div class="exchange__form--result">
-                                    <p class="txt-center"><span id="tradeBuyAmount">Trading Amount</span>：0 <b class="sec-token">TRX</b> </p><!--Output Variable-->
+                                    <p class="txt-center"><span id="trade">Trading Amount</span>：0 <b class="sec-token">TRX</b> </p><!--Output Variable-->
                                 </div>
 
                                 <div style="text-align: center;">
                                     <button type="button" class="btn btn-buy"><span id="buy">BUY </span><span class="pri-token">TTS</span></button>
 
                                 </div>
-                                <div class="subtitle txt-center"><span id="feeBuy">0 trading fee for all orders</span></div>
+                                <div class="subtitle txt-center"><span id="fee">0 trading fee for all orders</span></div>
                             </form>
 
                         </div>
@@ -185,24 +189,24 @@
                          <!-- Exchange Form -->
                             <form action="" method="post" class="exchange__form">
                                 <div class="exchange__form--field sell-field">
-                                    <span class="exchange__form--label label-grey pos-left" id="priceSell">Price</span>
+                                    <span class="exchange__form--label label-grey pos-left" id="price">Price</span>
                                     <input type="text" name="ex-sell-price" id="" class="exchange__form--input"  value="11.1999">
                                     <span class="exchange__form--label label-grey sec-token pos-right">TRX</span>
                                 </div>
                                 <div class="exchange__form--field sell-field">
-                                    <span class="exchange__form--label label-grey pos-left" id="amountSell">Amount</span> 
+                                    <span class="exchange__form--label label-grey pos-left" id="amount">Amount</span> 
                                     <input type="text" name="ex-sell-amount" id="" class="exchange__form--input"  value="" placeholder="Trading Amount">
                                     <span class="exchange__form--label label-grey pri-token pos-right">TTS</span>
                                 </div>
 
                                 <div class="exchange__form--result">
-                                    <p class="txt-center"><span id="tradeSellAmount">Trading Amount</span>：0 <b class="sec-token">TRX</b> </p><!--Output Variable-->
+                                    <p class="txt-center"><span id="trade">Trading Amount</span>：0 <b class="sec-token">TRX</b> </p><!--Output Variable-->
                                 </div>
 
                                 <div style="text-align: center;">
                                     <button type="button" class="btn btn-sell"><span id="sell">SELL </span><span class="pri-token">TTS</span></button>
                                 </div>
-                                <div class="subtitle txt-center"><span id="feeSell">0 trading fee for all orders</span></div>
+                                <div class="subtitle txt-center"><span id="fee">0 trading fee for all orders</span></div>
                             </form>
 
                         </div>
@@ -221,8 +225,8 @@
             <div class="footer__links">
                 <nav class="nav">
                     <ul class="nav__list">
-                        <li class="nav__item"><a href="https://tronscan.org/#/token20/TZ9BUwiQqk3dDNCW78LARaaDhHScwUu7Qq" class="nav__link">Contract</a></li>
-                        <li class="nav__item"><a href="https://tts.best/whitepaper.pdf" class="nav__link">White Paper</a></li>
+                        <li class="nav__item"><a href="https://tronscan.org/#/token20/TZ9BUwiQqk3dDNCW78LARaaDhHScwUu7Qq" class="nav__link" id="contract">Contract</a></li>
+                        <li class="nav__item"><a href="https://tts.best/whitepaper.pdf" class="nav__link" id="whitePaper">White Paper</a></li>
                     </ul>
                 </nav>
             

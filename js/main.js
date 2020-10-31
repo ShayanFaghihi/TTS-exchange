@@ -29,55 +29,102 @@ function token(id) {
 
 }
 
-var languages = {
-  en:{
-    price : "Price",
-    amount : "Amount",
-    tradeAmount : "Trading Amount",
-    buy : "BUY",
-    sell : "SELL",
-    fee : "trading fee for all orders",
-    contract : "Contract",
-    whitePaper : "White Paper"
+
+// Languages
+const langEl = document.querySelector('.dropdown-menu');
+const link = document.querySelectorAll('a');
+
+const price = document.querySelectorAll('#price');
+const amount = document.querySelectorAll('#amount');
+const trade = document.querySelectorAll('#trade');
+const buy = document.querySelectorAll('#buy');
+const sell = document.querySelectorAll('#sell');
+const contract = document.querySelectorAll('#contract');
+const whitePaper = document.querySelectorAll('#whitePaper');
+const tradeFee = document.querySelectorAll('#fee');
+const header = document.querySelectorAll('#header');
+
+
+
+link.forEach(el => {
+  el.addEventListener('click', () => {
+    // langEl.querySelector('.active').classList.remove('active');
+    // el.classList.add('active');
+
+    const attr = el.getAttribute('language');
+
+    for(x of price) {
+      x.textContent = data[attr].price;
+    }
+
+    for(x of amount) {
+      x.textContent = data[attr].amount;
+    }
+
+    for(x of trade) {
+      x.textContent = data[attr].tradeAmount;
+    }
+
+    for(x of buy) {
+      x.textContent = data[attr].buy;
+    }
+
+    for(x of sell) {
+      x.textContent = data[attr].sell;
+    }
+
+    for(x of contract) {
+      x.textContent = data[attr].contract;
+    }
+
+    for(x of whitePaper) {
+      x.textContent = data[attr].whitePaper;
+    }
+
+    for(x of tradeFee) {
+      x.textContent = data[attr].fee;
+    }
+
+    for(x of header) {
+      x.textContent = data[attr].header;
+    }
+
+  });
+});
+
+var data = {
+  "en":{
+    "price" : "Price",
+    "amount" : "Amount",
+    "tradeAmount" : "Trading Amount",
+    "buy" : "BUY",
+    "sell" : "SELL",
+    "fee" : "trading fee for all orders",
+    "contract" : "Contract",
+    "whitePaper" : "White Paper",
+    "header" : "Welcome"
   },
-  fa:{
-    price : "قیمت",
-    amount : "مقدار",
-    tradeAmount : "مقدار معامله",
-    buy : "خرید",
-    sell : "فروش",
-    fee : "هزینه تراکنش سفارشات",
-    contract : "قرارداد",
-    whitePaper : "برگه سفید"
+  "fa":{
+    "price" : "قیمت",
+    "amount" : "مقدار",
+    "tradeAmount" : "مقدار معامله",
+    "buy" : "خرید",
+    "sell" : "فروش",
+    "fee" : "هزینه تراکنش سفارشات",
+    "contract" : "قرارداد",
+    "whitePaper" : "برگه سفید",
+    "header" : "خوش آمدید"
+  },
+  "es": {
+    "price" : "Precio",
+    "amount" : "Cantidad",
+    "tradeAmount" : "Monto de negociación",
+    "buy" : "Comprar",
+    "sell" : "Vender",
+    "fee" : "tarifa de negociación para todos los pedidos",
+    "contract" : "Contrato",
+    "whitePaper" : "Papel blanco",
+    "header" : "Bienvenida"
+    }
   }
-}
 
-if(window.location.hash){
-  if(window.location.hash === "#fa"){
-    
-
-    priceBuy.textContent = languages.fa.price;
-    priceSell.textContent = languages.fa.price;
-    amountBuy.textContent = languages.fa.amount;
-    amountSell.textContent = languages.fa.amount;
-    buy.textContent = languages.fa.buy;
-    sell.textContent = languages.fa.sell;
-    feeBuy.textContent = languages.fa.fee;
-    feeSell.textContent = languages.fa.fee;
-    tradeBuyAmount.textContent = languages.fa.tradeAmount;
-    tradeSellAmount.textContent = languages.fa.tradeAmount;
-    contract.textContent = languages.fa.contract;
-    whitePaper.textContent = languages.fa.whitePaper;
-    
-    
-  }
-}
-
-var reload = document.querySelectorAll('.reload');
-
-for( i = 0 ; i <= reload.length ; i++){
-  reload[i].onclick = function(){
-      window.location.hash = this.getAttribute('href');
-      window.location.reload();
-  }
-}
