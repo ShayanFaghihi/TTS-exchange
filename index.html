@@ -3,43 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+          integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link href="" rel="stylesheet">
+    <script src="js/lib/ethers-5.0.umd.min.js"
+            type="application/javascript"></script>
     <link rel="stylesheet" href="css/style.css">
     <title>TTS</title>
-    
+
 </head>
 <body>
-    <!-- particles.js container -->
+<!-- particles.js container -->
 <div id="particles-js"></div>
 
 <!-- scripts -->
-<script src="../particles.js"></script>
+<script src="particles.js"></script>
 <script src="js/app.js"></script>
-
+<script src="js/tronUtils.js"></script>
 
 
 <header>
 
-<div class="navigation">
-    <!-- Main Header -->
-    <div class="container row">
-    
-        <a href="/" class="logo">
-           <img src="img/logo.png" alt="Logo">
-        </a>
-        <nav class="nav d-flex">
-            <ul class="nav__list nav__list--primary d-flex">
-                <li class="nav__item"><a href="https://tronscan.org/#/token20/TZ9BUwiQqk3dDNCW78LARaaDhHScwUu7Qq" class="nav__link" id="contract">Contract</a></li>
-                <li class="nav__item"><a href="https://tts.best/whitepaper.pdf" class="nav__link" id="whitePaper">White Paper</a></li>
-            </ul>
-            <ul class="nav__list nav__list--secondary">
-                <li class="nav__item">
-                      
-                <div class="dropdown ">
-                    <button class="btn-lang btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-globe"></i> Language
+    <div class="navigation">
+        <!-- Main Header -->
+        <div class="container row">
+
+            <a href="/" class="logo">
+                <img src="img/logo.png" alt="Logo">
+            </a>
+            <nav class="nav d-flex">
+                <ul class="nav__list nav__list--primary d-flex">
+                    <li class="nav__item"><a href="https://tronscan.org/#/token20/TZ9BUwiQqk3dDNCW78LARaaDhHScwUu7Qq"
+                                             class="nav__link" id="contract">Contract</a></li>
+                    <li class="nav__item"><a href="https://tts.best/whitepaper.pdf" class="nav__link" id="whitePaper">White
+                        Paper</a></li>
+                </ul>
+                <ul class="nav__list nav__list--secondary">
+                    <li class="nav__item">
+
+                        <div class="dropdown ">
+                            <button class="btn-lang btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-globe"></i> Language
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item reload" href="#en" language='en'>English</a>
+                                <a class="dropdown-item reload" href="#fa" language='fa'>Persian</a>
+                                <a class="dropdown-item reload" href="#es" language='es'>Spanish</a>
+                                <a class="dropdown-item reload" href="#ch" language='ch'>Chinese</a>
+                                <a class="dropdown-item reload" href="#ru" language='ru'>Russian</a>
+                                <a class="dropdown-item reload" href="#fr" language='fr'>French</a>
+                                <a class="dropdown-item reload" href="#it" language='it'>Italian</a>
+                                <a class="dropdown-item reload" href="#in" language='in'>Hindi</a>
+                                <a class="dropdown-item reload" href="#pr" language='pr'>Portuguese</a>
+                                <a class="dropdown-item reload" href="#ar" language='ar'>Arabic</a>
+                                <a class="dropdown-item reload" href="#tr" language='tr'>Turkish</a>
+                            </div>
+
+
+                        </div>
+
+
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+
+    <div class="mobile-navigation">
+        <div class="container d-flex">
+            <a href="/" class="logo">
+                <img width="60" src="img/logo.png" alt="Logo">
+            </a>
+
+            <nav class="mobile-nav">
+                <ul class="mobile-nav__list d-flex">
+                    <li class="mobile-nav__item"><a href="" class="mobile-nav__link" id="contract">Contract</a></li>
+                    <li class="mobile-nav__item"><a href="" class="mobile-nav__link" id="whitePaper">White Paper</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="mobile-nav__lang">
+                <div class="dropdown dropleft">
+                    <button class="btn-lang btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-globe"></i>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item reload" href="#en" language='en'>English</a>
@@ -54,212 +105,192 @@
                         <a class="dropdown-item reload" href="#ar" language='ar'>Arabic</a>
                         <a class="dropdown-item reload" href="#tr" language='tr'>Turkish</a>
                     </div>
-
-    
-                        
-
-                </div>
-
-    
-                </li>
-            </ul>
-        </nav>
-            
-    </div>
-</div>
-
-<div class="mobile-navigation">
-    <div class="container d-flex">
-        <a href="/" class="logo">
-            <img width="60" src="img/logo.png" alt="Logo">
-         </a>
-        
-        <nav class="mobile-nav">
-            <ul class="mobile-nav__list d-flex">
-                <li class="mobile-nav__item"><a href="" class="mobile-nav__link" id="contract">Contract</a></li>
-                <li class="mobile-nav__item"><a href="" class="mobile-nav__link" id="whitePaper">White Paper</a></li>
-            </ul>
-        </nav>
-        <div class="mobile-nav__lang">
-            <div class="dropdown dropleft">
-                <button class="btn-lang btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-globe"></i> 
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item reload" href="#en" language='en'>English</a>
-                    <a class="dropdown-item reload" href="#fa" language='fa'>Persian</a>
-                    <a class="dropdown-item reload" href="#es" language='es'>Spanish</a>
-                    <a class="dropdown-item reload" href="#ch" language='ch'>Chinese</a>
-                    <a class="dropdown-item reload" href="#ru" language='ru'>Russian</a>
-                    <a class="dropdown-item reload" href="#fr" language='fr'>French</a>
-                    <a class="dropdown-item reload" href="#it" language='it'>Italian</a>
-                    <a class="dropdown-item reload" href="#in" language='in'>Hindi</a>
-                    <a class="dropdown-item reload" href="#pr" language='pr'>Portuguese</a>
-                    <a class="dropdown-item reload" href="#ar" language='ar'>Arabic</a>
-                    <a class="dropdown-item reload" href="#tr" language='tr'>Turkish</a>
                 </div>
             </div>
+
+        </div>
+    </div>
+    <!-- Hero Box -->
+    <div class="hero">
+        <div class="container">
+            <h1 class="txt-center" id="header">Welcome</h1>
+            <p id="cta" class="txt-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+                accusantium minima modi soluta perspiciatis? Eligendi error dignissimos blanditiis eveniet laborum amet
+                omnis, sunt culpa facere nisi beatae, ipsam totam veritatis.</p>
         </div>
 
     </div>
-</div>
-<!-- Hero Box -->
-   <div class="hero">
-       <div class="container">
-           <h1 class="txt-center" id="header">Welcome</h1>
-           <p id="cta" class="txt-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur accusantium minima modi soluta perspiciatis? Eligendi error dignissimos blanditiis eveniet laborum amet omnis, sunt culpa facere nisi beatae, ipsam totam veritatis.</p>
-       </div>
-
-   </div>
 </header>
 
 <!-- Main Content -->
-    <main class="main-wrapper">
-        <div class="exchange">
-            <div class="container">
-                <div class="exchange__filter">
-                    <div class="container">
+<main class="main-wrapper">
+    <div class="exchange">
+        <div class="container">
+            <div class="exchange__filter">
+                <div class="container">
 
-                        <!-- Exchange Tokens -->
-                        <!-- <div class="exchange__table">
-                            <table id="token-table">   
-                                <tbody>
-                                     <tr id="token" onclick="token(this.id)" class="token-selected">
-                                        <td>TRX</td>
-                                        <td>/</td>
-                                        <td>USDT</td>
-                                    </tr>
-                                    <tr id="token" onclick="token(this.id)">
-                                        <td>TTS</td>
-                                        <td>/</td>
-                                        <td>USDT</td>
-                                    </tr>
-                                    <tr id="token" onclick="token(this.id)">
-                                        <td>TTS</td>
-                                        <td>/</td>
-                                        <td>TRX</td>
-                                    </tr>
+                    <!-- Exchange Tokens -->
+                    <!-- <div class="exchange__table">
+                        <table id="token-table">
+                            <tbody>
+                                 <tr id="token" onclick="token(this.id)" class="token-selected">
+                                    <td>TRX</td>
+                                    <td>/</td>
+                                    <td>USDT</td>
+                                </tr>
+                                <tr id="token" onclick="token(this.id)">
+                                    <td>TTS</td>
+                                    <td>/</td>
+                                    <td>USDT</td>
+                                </tr>
+                                <tr id="token" onclick="token(this.id)">
+                                    <td>TTS</td>
+                                    <td>/</td>
+                                    <td>TRX</td>
+                                </tr>
 
-                                </tbody>     
-                            </table>
-                        </div> -->
+                            </tbody>
+                        </table>
+                    </div> -->
 
-                        
 
-                    </div>
                 </div>
-                <!-- Main Transaction Tables  -->
-                <div class="exchange__tables row">
+            </div>
+            <div>
+                AAAA:<label id="address">No Address</label><br>
+                BBBBB:<label id="tts-balance">0</label><br>
+                CCCCC:<label id="tron-balance">0</label><br>
 
-                        <!-- Buy Transaction -->
-                        <div class="exchange__table col">
+            </div>
+            <!-- Main Transaction Tables  -->
+            <div class="exchange__tables row">
 
-                            <!-- The start and end point currencies -->
-                            <!-- These variables must be set based on customer choise -->
-                            <h5 class="exchange__header">
-                                <span class="pri-token">TTS</span> <!--First Variable (start) -->
-                                / <span class="sec-token">  TRX</span> ≈  <!--Second Variable -->
-                                <span id="value">11.199900</span>  <!--Currencies Rate-->
-                            </h5>
+                <!-- Buy Transaction -->
+                <div class="exchange__table col">
 
-                          
-                            <!-- Exchange Form -->
-                            <form action="" method="post" class="exchange__form">
-                                <div class="exchange__form--field" >
-                                    <span class="exchange__form--label label-gold pos-left" id="price">Price</span>
-                                    <input type="text" name="ex-buy-price" id="" class="exchange__form--input"  value="11.199" placeholder="">
-                                    <span class="exchange__form--label label-gold sec-token pos-right">TRX</span>
-                                </div>
-                                <div class="exchange__form--field">  
-                                    <span class="exchange__form--label label-gold pos-left" id="amount">Amount</span> 
-                                    <input type="text" name="ex-buy-price" id="" class="exchange__form--input"  value="" placeholder="Trading Amount">
-                                    <span class="exchange__form--label label-gold pri-token pos-right">TTS</span>
-                                </div>
+                    <!-- The start and end point currencies -->
+                    <!-- These variables must be set based on customer choise -->
+                    <h5 class="exchange__header">
+                        <span class="pri-token">TTS</span> <!--First Variable (start) -->
+                        / <span class="sec-token">  TRX</span> ≈  <!--Second Variable -->
+                        <span id="buyPrice1"></span>  <!--Currencies Rate-->
+                    </h5>
 
-                                <div class="exchange__form--result">
-                                    <p class="txt-center"><span id="trade">Trading Amount</span>：0 <b class="sec-token">TRX</b> </p><!--Output Variable-->
-                                </div>
 
-                                <div style="text-align: center;">
-                                    <button type="button" class="btn btn-buy"><span id="buy">BUY </span><span class="pri-token">TTS</span></button>
+                    <!-- Exchange Form -->
+                    <form action="" method="post" class="exchange__form">
+                        <div class="exchange__form--field">
+                            <span class="exchange__form--label label-gold pos-left" id="price">Price</span>
+                            <label type="text" name="ex-buy-price" id="buyPrice" class="exchange__form--input">2</label>
+                            <span class="exchange__form--label label-gold   sec-token pos-right">TRX</span>
+                        </div>
+                        <div class="exchange__form--field">
+                            <span class="exchange__form--label label-gold pos-left" id="amount">Amount</span>
+                            <input type="text" name="ex-buy-price" id="buyAmount" oninput="calcBuyTTSValue()"
+                                   class="exchange__form--input"
+                                   placeholder="0">
+                            <span class="exchange__form--label label-gold pri-token pos-right">TTS</span>
+                        </div>
 
-                                </div>
-                                <div class="subtitle txt-center"><span id="fee">0 trading fee for all orders</span></div>
-                            </form>
+                        <div class="exchange__form--result">
+                            <p class="txt-center"><span id="trade">Trading Amount:</span><label
+                                    id="sumBuyPrice">0</label><b class="sec-token">TRX</b>
+                            </p><!--Output Variable-->
+                        </div>
+
+                        <div style="text-align: center;">
+                            <button type="button" class="btn btn-buy" onclick="buyTTS()"><span id="buy">BUY </span><span
+                                    class="pri-token">TTS</span>
+                            </button>
 
                         </div>
-                        <!-- End of Buy Table -->
+                        <div class="subtitle txt-center"><span id="fee">0 trading fee for all orders</span></div>
+                    </form>
+
+                </div>
+                <!-- End of Buy Table -->
 
 
-                         <!-- SELL Transaction -->
-                        <div class="exchange__table col">
+                <!-- SELL Transaction -->
+                <div class="exchange__table col">
 
-                            <!-- The start and end point currencies -->
-                            <!-- These variables must be set based on customer choise -->
-                            <h5 class="exchange__header">
-                                <span class="pri-token">TTS</span> <!--First Variable (start) -->
-                                / <span class="sec-token">TRX</span> ≈  <!--Second Variable -->
-                                <span>11.199900</span>  <!--Currencies Rate-->
-                            </h5>
+                    <!-- The start and end point currencies -->
+                    <!-- These variables must be set based on customer choise -->
+                    <h5 class="exchange__header">
+                        <span class="pri-token">TTS</span> <!--First Variable (start) -->
+                        / <span class="sec-token">TRX</span> ≈  <!--Second Variable -->
+                        <span id="sellPrice1"></span>  <!--Currencies Rate-->
+                    </h5>
 
-                         <!-- Exchange Form -->
-                            <form action="" method="post" class="exchange__form">
-                                <div class="exchange__form--field sell-field">
-                                    <span class="exchange__form--label label-grey pos-left" id="price">Price</span>
-                                    <input type="text" name="ex-sell-price" id="" class="exchange__form--input"  value="11.1999">
-                                    <span class="exchange__form--label label-grey sec-token pos-right">TRX</span>
-                                </div>
-                                <div class="exchange__form--field sell-field">
-                                    <span class="exchange__form--label label-grey pos-left" id="amount">Amount</span> 
-                                    <input type="text" name="ex-sell-amount" id="" class="exchange__form--input"  value="" placeholder="Trading Amount">
-                                    <span class="exchange__form--label label-grey pri-token pos-right">TTS</span>
-                                </div>
-
-                                <div class="exchange__form--result">
-                                    <p class="txt-center"><span id="trade">Trading Amount</span>：0 <b class="sec-token">TRX</b> </p><!--Output Variable-->
-                                </div>
-
-                                <div style="text-align: center;">
-                                    <button type="button" class="btn btn-sell"><span id="sell">SELL </span><span class="pri-token">TTS</span></button>
-                                </div>
-                                <div class="subtitle txt-center"><span id="fee">0 trading fee for all orders</span></div>
-                            </form>
-
+                    <!-- Exchange Form -->
+                    <form action="" method="post" class="exchange__form">
+                        <div class="exchange__form--field sell-field">
+                            <span class="exchange__form--label label-grey pos-left" id="price">Price</span>
+                            <label type="text" name="ex-sell-price" id="sellPrice" class="exchange__form--input">Fetching...
+                                <span class="exchange__form--label label-grey sec-token pos-right">TRX</span>
                         </div>
-                        <!-- End of SELL Table -->
+                        <div class="exchange__form--field sell-field">
+                            <span class="exchange__form--label label-grey pos-left" id="amount">Amount</span>
+                            <input type="text" name="ex-sell-amount" id="sellAmount" class="exchange__form--input"
+                                   placeholder="0" oninput="calcSellTTSValue()">
+                            <span class="exchange__form--label label-grey pri-token pos-right">TTS</span>
+                        </div>
+
+                        <div class="exchange__form--result">
+                            <p class="txt-center"><span id="trade">Trading Amount:</span><label
+                                    id="sumSellPrice">0</label><b class="sec-token">TRX</b>
+                            </p><!--Output Variable-->
+                        </div>
+
+                        <div style="text-align: center;">
+                            <button type="button" class="btn btn-sell" onclick="sellTTS()"><span
+                                    id="sell">SELL </span><span
+                                    class="pri-token">TTS</span></button>
+                        </div>
+                        <div class="subtitle txt-center"><span id="fee">1-3 trading fee for all orders</span></div>
+                    </form>
+
+                </div>
+                <!-- End of SELL Table -->
 
 
-                    </div>
-               
-                <div class="exchange__filter"></div>
             </div>
+
+            <div class="exchange__filter"></div>
         </div>
-    </main>
+    </div>
+</main>
 
-    <footer class="footer">
-        <div class="container row">
-            <div class="footer__links">
-                <nav class="nav">
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="https://tronscan.org/#/token20/TZ9BUwiQqk3dDNCW78LARaaDhHScwUu7Qq" class="nav__link" id="contract">Contract</a></li>
-                        <li class="nav__item"><a href="https://tts.best/whitepaper.pdf" class="nav__link" id="whitePaper">White Paper</a></li>
-                    </ul>
-                </nav>
-            
-                
-            </div>
-            <div class="footer_social d-flex">
-                <a href="#" class="footer__social--link">
+<footer class="footer">
+    <div class="container row">
+        <div class="footer__links">
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="https://tronscan.org/#/token20/TZ9BUwiQqk3dDNCW78LARaaDhHScwUu7Qq"
+                                             class="nav__link" id="contract">Contract</a></li>
+                    <li class="nav__item"><a href="https://tts.best/whitepaper.pdf" class="nav__link" id="whitePaper">White
+                        Paper</a></li>
+                </ul>
+            </nav>
 
-                </a>
-            </div>
-            <div class="footer__support">
-                <a class="btn btn-light btn-small" href="https://t.me/ttstoken"><i class="fas fa-user"></i>Support</a>
-            </div>
+
         </div>
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <div class="footer_social d-flex">
+            <a href="#" class="footer__social--link">
+
+            </a>
+        </div>
+        <div class="footer__support">
+            <a class="btn btn-light btn-small" href="https://t.me/ttstoken"><i class="fas fa-user"></i>Support</a>
+        </div>
+    </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
 <script src="js/main.js"></script>
 </body>
 
