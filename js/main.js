@@ -29,28 +29,55 @@ function token(id) {
 
 }
 
-
-
-
-
-// Language
-var language; 
-function getLanguage() {
-(localStorage.getItem('language') == null) ? setLanguage('en') : false;
-$.ajax({ 
-url:  '../language/' +  localStorage.getItem('language') + '.json', 
-dataType: 'json', async: false, dataType: 'json', 
-success: function (lang) { language = lang } });
-
+var languages = {
+  en:{
+    price : "Price",
+    amount : "Amount",
+    tradeAmount : "Trading Amount",
+    buy : "BUY",
+    sell : "SELL",
+    fee : "trading fee for all orders",
+    contract : "Contract",
+    whitePaper : "White Paper"
+  },
+  fa:{
+    price : "قیمت",
+    amount : "مقدار",
+    tradeAmount : "مقدار معامله",
+    buy : "خرید",
+    sell : "فروش",
+    fee : "هزینه تراکنش سفارشات",
+    contract : "قرارداد",
+    whitePaper : "برگه سفید"
+  }
 }
 
+if(window.location.hash){
+  if(window.location.hash === "#fa"){
+    
 
-
-function setLanguage(lang) {
-localStorage.setItem('language', lang);
+    priceBuy.textContent = languages.fa.price;
+    priceSell.textContent = languages.fa.price;
+    amountBuy.textContent = languages.fa.amount;
+    amountSell.textContent = languages.fa.amount;
+    buy.textContent = languages.fa.buy;
+    sell.textContent = languages.fa.sell;
+    feeBuy.textContent = languages.fa.fee;
+    feeSell.textContent = languages.fa.fee;
+    tradeBuyAmount.textContent = languages.fa.tradeAmount;
+    tradeSellAmount.textContent = languages.fa.tradeAmount;
+    contract.textContent = languages.fa.contract;
+    whitePaper.textContent = languages.fa.whitePaper;
+    
+    
+  }
 }
 
+var reload = document.querySelectorAll('.reload');
 
-$(document).ready(function(){
-  $('#div1').text(language.contract);
-  });
+for( i = 0 ; i <= reload.length ; i++){
+  reload[i].onclick = function(){
+      window.location.hash = this.getAttribute('href');
+      window.location.reload();
+  }
+}

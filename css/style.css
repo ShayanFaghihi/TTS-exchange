@@ -50,6 +50,9 @@ h1, h2, h3, h4, h5, h6,input, textarea {
   font-size: 1rem;
 }
 
+p {
+  margin-bottom: 0;
+}
 
 h1 {
     font-weight: bold;
@@ -88,10 +91,12 @@ a {
   letter-spacing: 5px;
   display: inline-block;
   cursor: pointer;
-  margin-top: 2rem;
   transition: all .3s;
 }
 
+.btn-small {
+  padding: .5rem;
+}
 
 .btn:hover {
  
@@ -142,6 +147,10 @@ a {
     margin-left: 5rem;
   }
 
+  .col {
+    max-width: 37%;
+  }
+
   tr + tr {
     margin-left: 2rem;
   }
@@ -160,6 +169,11 @@ a {
   top: 2rem;
   left: 0;
   width: 100%;
+  display: none;
+}
+
+@media (min-width:760px) {
+  .navigation{display: block;}
 }
 
 .logo {
@@ -167,9 +181,6 @@ a {
   width: 100px;
 }
 
-.nav {
-  width: 100%;
-}
 .nav__list {
   list-style: none;
   align-self: center;
@@ -178,6 +189,9 @@ a {
 .nav__list--primary {
   margin: 0 auto;
 }
+.nav__list--secondary {
+  margin-bottom: 0;
+}
 
 .nav__item {
   margin-right: 2rem;
@@ -185,13 +199,56 @@ a {
 .nav__link {
   color: #fff;
   font-size: 1.2rem;
+  transition: all .3s;
 }
+
+.nav__link:hover {
+  color: var(--gold);
+}
+
+.btn-lang {
+  padding: .5rem;
+  border-radius: 7px;
+  box-shadow: none;
+  border: none;
+  outline: none;
+}
+
+.mobile-nav__lang {
+  align-self: center;
+}
+/* ------Mobile Navigation----------- */
+
+.mobile-navigation {
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  width: 100%;
+}
+
+@media (min-width:760px) {
+  .mobile-navigation{display: none;}
+}
+
+
+.mobile-nav__link {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  display: block;
+}
+
+.mobile-nav__item {
+  list-style: none;
+}
+
 
 .hero {
   position: absolute;
   transform: translateX(-50%);
   left: 50%;
-  top: 35%;
+  top: 40%;
 
 }
 
@@ -221,10 +278,6 @@ a {
   padding:2rem 0;
 }
 
-.exchange__form--label {
-  outline: none;
-  border-radius: 5px;
-}
 
 
 .exchange__form--field {
@@ -234,9 +287,12 @@ a {
 }
 
 .exchange__form--label {
-  padding: .8rem 1rem;
+  outline: none;
+  border-radius: 5px;
+  padding: 1rem 1rem;
   position: absolute;
   top: 0;
+  font-weight: 700;
 }
 
 .label-gold,
@@ -410,3 +466,13 @@ canvas{
 
 
 
+
+/* -----------Footer-------------------- */
+.footer {
+  background-color: #222;
+  padding: 4rem 0;
+}
+
+.footer .row {
+  align-items: center;
+}
