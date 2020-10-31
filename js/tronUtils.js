@@ -1,25 +1,34 @@
 fetch('https://api.tts.best/api/get_price').then((response) => {
     response.json().then((res) => {
         HEALTH = res.health;
-        document.getElementById("sellPrice").textContent = res.msg;
-        document.getElementById("sellPrice1").textContent = res.msg;
-        document.getElementById("buyPrice").textContent = res.pureValue;
-        document.getElementById("buyPrice1").textContent = res.pureValue;
+        document.getElementById("sellPrice").textContent = (res.pureValue / 1000000).toPrecision(10);
+        document.getElementById("sellPrice1").textContent = (res.pureValue / 1000000).toPrecision(10);
+        document.getElementById("buyPrice").textContent = (res.msg / 1000000).toPrecision(10);
+        document.getElementById("buyPrice1").textContent = (res.msg / 1000000).toPrecision(10);
+        calcBuyTTSValue();
+        calcSellTTSValue();
 
-    })
-})
+    }).catch((reason => {
+
+    }))
+}).catch((reason => {
+
+}))
 setInterval(() => {
     fetch('https://api.tts.best/api/get_price').then((response) => {
         response.json().then((res) => {
             HEALTH = res.health;
-            document.getElementById("sellPrice").textContent = res.msg;
-            document.getElementById("sellPrice1").textContent = res.msg;
-            document.getElementById("buyPrice").textContent = res.pureValue;
-            document.getElementById("buyPrice1").textContent = res.pureValue;
-
+            document.getElementById("sellPrice").textContent = (res.pureValue / 1000000).toPrecision(10);
+            document.getElementById("sellPrice1").textContent = (res.pureValue / 1000000).toPrecision(10);
+            document.getElementById("buyPrice").textContent = (res.msg / 1000000).toPrecision(10);
+            document.getElementById("buyPrice1").textContent = (res.msg / 1000000).toPrecision(10);
+            calcBuyTTSValue();
+            calcSellTTSValue();
 
         })
-    })
+    }).catch((reason => {
+
+    }))
 
 }, 2000);
 
@@ -38,11 +47,11 @@ function initTronWebInstance() {
                 loadFinish();
             }
             tries++;
-            if (tries > 5) {
+            if (tries > 10) {
                 clearInterval(timer);
                 reject();
             }
-        }, 100);
+        }, 1000);
     });
 
 }
@@ -117,7 +126,7 @@ async function encodeParams(inputs) {
 
 let tron;
 const TTSContract = "TVPCZeQsc7AWkszhNvVJrVA33oEtH9rYPE";
-const BACKEND_ADDRESS = "";
+const BACKEND_ADDRESS = "TNbzbf6QGFsJNfY3Qu3esaPTrJwKAACLi3";
 const FEE_PRICE = 3;//TRON
 const THEIR_PERCENT = 0.9;
 let HEALTH = true;
@@ -169,14 +178,7 @@ initTronWebInstance().then(function (tronWeb) {
             console.error(err);
         });
 
-    // setInterval(() => {
-    //     triggerContractCall('totalSupply', tokenContractAddress, 1).then(function (res) {
-    //
-    //         changeValue(thiss, parseFloat(res / (10 ** 18)).toPrecision(10), 'totalMintedTTS');
-    //     }, () => {
-    //     });
-    // }, 500);
-    //
+
     // setInterval(() => {
     //     triggerContractCallArgs('balanceOf', [thiss.myAccount], tokenContractAddress, 1).then(function (res) {
     //         changeValue(thiss, parseFloat(res / (10 ** 18)).toPrecision(10), 'TTSBalance');
@@ -185,8 +187,8 @@ initTronWebInstance().then(function (tronWeb) {
     // }, 500);
 
 
-}, () => {
-
+}, (res) => {
+    alert("No Tron Wallet detected!")//todo show modal
 }).catch((res) => {
     alert("No Tron Wallet detected!")//todo show modal
 });
@@ -211,24 +213,32 @@ function sellTTS() {
 function calcBuyTTSValue() {
     if (document.getElementById("buyAmount").value *
         document.getElementById("buyPrice").textContent + FEE_PRICE) {
-
-        document.getElementById("sumBuyPrice").textContent = document.getElementById("buyAmount").value *
-            document.getElementById("buyPrice").textContent + FEE_PRICE;
+        document.getElementById("sumBuyPrice").textContent = (document.getElementById("buyAmount").value *
+            document.getElementById("buyPrice").textContent);
     }
 }
 
 function calcSellTTSValue() {
     if (document.getElementById("sellAmount").value *
-        document.getElementById("sellPrice").textContent + FEE_PRICE)
+        document.getElementById("sellPrice").textContent * THEIR_PERCENT)
 
         document.getElementById("sumSellPrice").textContent = document.getElementById("sellAmount").value *
             document.getElementById("sellPrice").textContent * THEIR_PERCENT;
 }
 
-function buyTTS() {
-    if (HEALTH){
-
+async function buyTTS() {
+    if (HEALTH && tron&& document.getElementById("sumBuyPrice").textContent > FEE_PRICE) {
+        var tx = await tron.transactionBuilder.sendTrx(BACKEND_ADDRESS, 1000000*(document.getElementById("sumBuyPrice").textContent + FEE_PRICE))
+        var signedTx = await tron.trx.sign(tx)
+        var broadcastTx = await tron.trx.sendRawTransaction(signedTx)
+        console.log(broadcastTx)
+    } else if(!HEALTH) {
+        alert("There is a connection Issue to Backend, please come back")//todo show modal
+    }
+    else if(!tron) {
+        alert("There is a connection Issue to wallet, please come back with a wallet")//todo show modal
     }else {
-        alert("You have to !")//todo show modal
+
+        alert("Less than our Minimum Fee")//todo show modal
     }
 }
