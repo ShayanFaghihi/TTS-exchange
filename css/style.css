@@ -456,6 +456,8 @@ a {
   margin-left: auto;
 }
 
+.exchange__form--input {text-align: center;}
+
 .exchange__form--text{-webkit-filter: opacity(.5);filter: opacity(.5);}
 
 .exchange__filter {
