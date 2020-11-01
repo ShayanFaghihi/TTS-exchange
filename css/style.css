@@ -338,7 +338,7 @@ a {
 
 @media (min-width:760px) {
   .balance {
-    width: 55%;
+    width: 65%;
   }
 }
 
@@ -369,12 +369,10 @@ a {
 }
 
 @media (min-width:760px) {
-  .balance-table label {
-    padding-left: 165px;
-  }
+
   .balance-table__result {
     padding: .6rem;
-    margin-bottom: 1rem;
+    margin: 3rem 0;
     text-align: left;
   }
 }
@@ -382,16 +380,17 @@ a {
 .balance-table__label {
   outline: none;
   border-radius: 5px;
-  padding: .1rem;
+  padding: 2px 8px 2px 8px;
   position: absolute;
   top: -20px;
-  font-weight: 700;
+  font-weight: 400;
+  font-size: 1rem;
 }
 
 @media (min-width:760px) {
   .balance-table__label {
-    padding: .8rem;
-    top: 0px;
+    padding: 5pxrem;
+    top: -24px;
   }
 }
 
