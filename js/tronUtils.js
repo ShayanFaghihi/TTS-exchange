@@ -253,32 +253,31 @@ initTronWebInstance().then(function (tronWeb) {
 });
 
 function sellTTS() {
-
-    if (document.getElementById("sumSellPrice").textContent > FEE_PRICE) {
-        if (tron) {
-            console.log(document.getElementById("sellAmount").value)
-            triggerContractCallArgs('approveAndCall', [EXCHANGER_CONTRACT, (document.getElementById("sellAmount")
-                .value * 1000000000000000000).toString(), "0x10"]).then(function (res) {
-                alert(res);
-            }, (err) => {
-                console.log(err)
-            });
-        } else {
-
-            showMessage("No Tron Wallet detected!");
-        }
-    } else {
-        showMessage("You Have to buy more than our Fee Value!");
-
-    }
+    alert("hesy")
+    showMessage("Sell TTS Receipt:\n" +
+        "Paid T.T.S: " + document.getElementById("sellAmount").textContent + parseInt(FEE_PRICE) + "\n" +
+        "Including " + ((1 - THEIR_PERCENT) * 100).toPrecision(6) + " % Fee\n" + "You Will be paid " +
+        document.getElementById("sumSellPrice").value + " Tron\n", true
+        , false);
 }
 
-function showMessage(msg) {
+function showMessage(msg, showButton, buyOrSell) {
     const modal = document.getElementById("myModal");
     modal.style.display = "block";
     const span = document.getElementsByClassName("modal-close")[0];
     span.onclick = function () {
         modal.style.display = "none";
+    }
+    console.log(showButton)
+    if (showButton === true) {
+        document.getElementById("modal-button").onclick = function () {
+            if (buyOrSell)
+                buyModal();
+            else
+                sellModal();
+        }
+    } else {
+        document.getElementById("modal-button").style.display = "none";
     }
     document.getElementById("textError").innerText = msg;
     // When the user clicks anywhere outside of the modal, close it
@@ -306,6 +305,14 @@ function calcSellTTSValue() {
 }
 
 async function buyTTS() {
+    showMessage("Buy TTS Receipt:\n" +
+        "Paid Tron: " + parseInt(parseInt(document.getElementById("sumBuyPrice").textContent) + parseInt(FEE_PRICE)) + "\n" +
+        "Including " + FEE_PRICE + " Tron\n" + "You Will be paid " + document.getElementById("buyAmount").value + " T.T.S\n", true, true
+    )
+    ;
+}
+
+async function buyModal() {
     if (HEALTH && tron && document.getElementById("sumBuyPrice").textContent > 0) {
         console.log(parseInt(document.getElementById("sumBuyPrice").textContent) + parseInt(FEE_PRICE))
         var tx = await tron.transactionBuilder.sendTrx(BACKEND_ADDRESS, 1000000 * (parseInt(document.getElementById("sumBuyPrice").textContent) + FEE_PRICE))
@@ -329,5 +336,25 @@ async function buyTTS() {
 
     } else {
         showMessage("Less than our Minimum Fee")
+    }
+}
+
+function sellModal() {
+    if (document.getElementById("sumSellPrice").textContent > FEE_PRICE) {
+        if (tron) {
+            console.log(document.getElementById("sellAmount").value)
+            triggerContractCallArgs('approveAndCall', [EXCHANGER_CONTRACT, (document.getElementById("sellAmount")
+                .value * 1000000000000000000).toString(), "0x10"]).then(function (res) {
+                console.log(res);
+            }, (err) => {
+                console.log(err)
+            });
+        } else {
+
+            showMessage("No Tron Wallet detected!");
+        }
+    } else {
+        showMessage("Less than our Minimum Value!");
+
     }
 }
