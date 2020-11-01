@@ -297,7 +297,7 @@ a {
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
   left: 50%;
-  top: 40%;
+  top: 30%;
   width: 100%;
 }
 
@@ -309,7 +309,7 @@ a {
 
 
 .main-wrapper {
-  padding: 100px 0;
+  padding: 0;
 }
 
 
@@ -339,7 +339,7 @@ a {
 
 @media (min-width:760px) {
   .balance {
-    width: 50%;
+    width: 55%;
   }
 }
 
@@ -371,7 +371,7 @@ a {
 
 @media (min-width:760px) {
   .balance-table label {
-    padding-left: 126px;
+    padding-left: 165px;
   }
   .balance-table__result {
     padding: .6rem;
@@ -441,7 +441,7 @@ a {
 .exchange__form--input,
 .exchange__form--text {
   width: 100%;
-  padding: 1rem 77px;
+  padding: 1rem 100px;
   border-radius: 7px;
   outline: none;
   border: none;

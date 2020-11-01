@@ -31,6 +31,8 @@ function token(id) {
 
 
 // Languages
+
+
 const langEl = document.querySelector('.dropdown-menu');
 const link = document.querySelectorAll('[language]');
 
@@ -49,9 +51,12 @@ const header = document.querySelectorAll('#header');
 
 
 link.forEach(el => {
-  el.addEventListener('click', () => {
+
+     el.addEventListener('click', () => {
     // langEl.querySelector('.active').classList.remove('active');
     // el.classList.add('active');
+
+  
 
     const attr = el.getAttribute('language');
 
