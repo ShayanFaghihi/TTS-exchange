@@ -32,7 +32,7 @@ function token(id) {
 
 // Languages
 const langEl = document.querySelector('.dropdown-menu');
-const link = document.querySelectorAll('a');
+const link = document.querySelectorAll('[language]');
 
 const price = document.querySelectorAll('#price');
 const amount = document.querySelectorAll('#amount');
