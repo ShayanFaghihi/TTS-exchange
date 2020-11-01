@@ -118,7 +118,6 @@ a {
   ;
   font-weight: 700;
   font-size: 1.9rem;
-  letter-spacing: 5px;
   display: inline-block;
   cursor: pointer;
   -webkit-transition: all .3s;
@@ -127,7 +126,7 @@ a {
 }
 
 .btn-small {
-  padding: .5rem;
+  padding: .7rem;
 }
 
 .btn:hover {
@@ -143,7 +142,7 @@ a {
 
 .btn-light {
   background-color: var(--gold);
-  color: #fff;
+  color: var(--brown);
 }
 
 .txt-center {
