@@ -1,10 +1,10 @@
 fetch('https://api.tts.best/api/get_price').then((response) => {
     response.json().then((res) => {
         HEALTH = res.health;
-        document.getElementById("sellPrice").textContent = (res.pureValue / 1000000).toPrecision(10);
-        document.getElementById("sellPrice1").textContent = (res.pureValue / 1000000).toPrecision(10);
-        document.getElementById("buyPrice").textContent = (res.msg / 1000000).toPrecision(10);
-        document.getElementById("buyPrice1").textContent = (res.msg / 1000000).toPrecision(10);
+        document.getElementById("sellPrice").textContent = (res.pureValue / 1000000).toPrecision(6);
+        document.getElementById("sellPrice1").textContent = (res.pureValue / 1000000).toPrecision(6);
+        document.getElementById("buyPrice").textContent = (res.msg / 1000000).toPrecision(6);
+        document.getElementById("buyPrice1").textContent = (res.msg / 1000000).toPrecision(6);
         calcBuyTTSValue();
         calcSellTTSValue();
 
@@ -18,10 +18,10 @@ setInterval(() => {
     fetch('https://api.tts.best/api/get_price').then((response) => {
         response.json().then((res) => {
             HEALTH = res.health;
-            document.getElementById("sellPrice").textContent = (res.pureValue / 1000000).toPrecision(10);
-            document.getElementById("sellPrice1").textContent = (res.pureValue / 1000000).toPrecision(10);
-            document.getElementById("buyPrice").textContent = (res.msg / 1000000).toPrecision(10);
-            document.getElementById("buyPrice1").textContent = (res.msg / 1000000).toPrecision(10);
+            document.getElementById("sellPrice").textContent = (res.pureValue / 1000000).toPrecision(6);
+            document.getElementById("sellPrice1").textContent = (res.pureValue / 1000000).toPrecision(6);
+            document.getElementById("buyPrice").textContent = (res.msg / 1000000).toPrecision(6);
+            document.getElementById("buyPrice1").textContent = (res.msg / 1000000).toPrecision(6);
             calcBuyTTSValue();
             calcSellTTSValue();
 
@@ -30,7 +30,7 @@ setInterval(() => {
 
     }))
 
-}, 2000);
+}, 20000);
 
 
 function initTronWebInstance() {
@@ -126,7 +126,11 @@ async function encodeParams(inputs) {
 
 let tron;
 const TTSContract = "TVPCZeQsc7AWkszhNvVJrVA33oEtH9rYPE";
+
+const TTSContractHex = "41fe2dc8d28b84b929e926382302dd5e94e915a6cf";
 const BACKEND_ADDRESS = "TPJsgS8Z31vgYxbr3uJGD4Hbj7ZmscVg5H";
+
+const BACKEND_ADDRESS_HEX = "419251d372921569af6f2e183d76cfdea6f6aff524";
 const EXCHANGER_CONTRACT = "TS2Ac5bzT2pWZNDZPLZ3YqfqNGLDgiWTNS";
 const FEE_PRICE = 3;//TRON
 const THEIR_PERCENT = 0.9;
@@ -155,7 +159,7 @@ initTronWebInstance().then(function (tronWeb) {
             .then(response => {
                 response.json().then((res) => {
                     decodeParams(['uint256'], "0x" + res['constant_result'], false).then((res) => {
-                        document.getElementById("tts-balance").textContent = (parseInt(res[0].toString()) / (10 ** 12)) / 1000000;
+                        document.getElementById("tts-balance").textContent = ((parseInt(res[0].toString()) / (10 ** 12)) / 1000000).toPrecision(6);
                     })
                 })
             })
@@ -189,16 +193,67 @@ initTronWebInstance().then(function (tronWeb) {
 
 
 }, (res) => {
-    alert("No Tron Wallet detected!")//todo show modal
 }).catch((res) => {
-    alert("No Tron Wallet detected!")//todo show modal
-});
+}).finally(() => {
+    fetch("https://api.trongrid.io/wallet/triggerconstantcontract", {
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": "{\"owner_address\":\"410000000000000000000000000000000000000000\",\"contract_address\":\"" + TTSContractHex + "\",\"function_selector\":\"totalSupply()\"}"
+    })
+        .then(response => {
+            response.json().then((res) => {
+                decodeParams(['uint256'], "0x" + res['constant_result'], false).then((res) => {
+                    document.getElementById("total-tts-minted").textContent = ((parseInt(res[0].toString()) / (10 ** 12)) / 1000000).toPrecision(12);
+                })
+            })
+        })
+        .catch(err => {
+            console.error(err);
+        });
+    let inputs = [
+        {type: 'address', value: BACKEND_ADDRESS_HEX}
+    ]
+    encodeParams(inputs).then(res => {
+        fetch("https://api.trongrid.io/wallet/triggerconstantcontract", {
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": "{\"owner_address\":\"410000000000000000000000000000000000000000\",\"contract_address\":\"" + TTSContractHex + "\",\"function_selector\":\"balanceOf(address)\",\"parameter\":\"" + res + "\"}"
+        })
+            .then(response => {
+                response.json().then((res) => {
 
-var modal = document.getElementById("myModal");
+                    console.log(res)
+                    decodeParams(['uint256'], "0x" + res['constant_result'], false).then((res) => {
+                        document.getElementById("total-tts-bank").textContent = ((parseInt(res[0].toString()) / (10 ** 12)) / 1000000).toPrecision(12);
+                    })
+                })
+            })
+            .catch(err => {
+                console.error(err);
+            });
+    });
+
+    fetch("https://api.trongrid.io/v1/accounts/" + BACKEND_ADDRESS, {
+        "method": "GET",
+        "headers": {}
+    })
+        .then(response => {
+            response.json().then((res) => {
+                if (res['data'][0]['balance'])
+                    document.getElementById("total-tron-bank").textContent = res['data'][0]['balance'] / 1000000;
+            })
+        })
+        .catch(err => {
+            console.error(err);
+        });
+});
 
 function sellTTS() {
 
-    modal.style.display = "block";
     if (document.getElementById("sumSellPrice").textContent > FEE_PRICE) {
         if (tron) {
             console.log(document.getElementById("sellAmount").value)
@@ -209,17 +264,34 @@ function sellTTS() {
                 console.log(err)
             });
         } else {
-            alert("No Tron Wallet detected!")//todo show modal
+
+            showMessage("No Tron Wallet detected!");
         }
     } else {
+        showMessage("You Have to buy more than our Fee Value!");
 
-        //alert("You Have to buy more than our Fee Value!")//todo show modal
+    }
+}
+
+function showMessage(msg) {
+    const modal = document.getElementById("myModal");
+    modal.style.display = "block";
+    const span = document.getElementsByClassName("modal-close")[0];
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+    document.getElementById("textError").innerText = msg;
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
     }
 }
 
 function calcBuyTTSValue() {
     if (document.getElementById("buyAmount").value *
-        document.getElementById("buyPrice").textContent + FEE_PRICE) {
+        document.getElementById("buyPrice").textContent) {
         document.getElementById("sumBuyPrice").textContent = (document.getElementById("buyAmount").value *
             document.getElementById("buyPrice").textContent);
     }
@@ -227,14 +299,14 @@ function calcBuyTTSValue() {
 
 function calcSellTTSValue() {
     if (document.getElementById("sellAmount").value *
-        document.getElementById("sellPrice").textContent * THEIR_PERCENT)
+        document.getElementById("sellPrice").textContent)
 
         document.getElementById("sumSellPrice").textContent = document.getElementById("sellAmount").value *
-            document.getElementById("sellPrice").textContent * THEIR_PERCENT;
+            document.getElementById("sellPrice").textContent;
 }
 
 async function buyTTS() {
-    if (HEALTH && tron && document.getElementById("sumBuyPrice").textContent > FEE_PRICE) {
+    if (HEALTH && tron && document.getElementById("sumBuyPrice").textContent > 0) {
         console.log(parseInt(document.getElementById("sumBuyPrice").textContent) + parseInt(FEE_PRICE))
         var tx = await tron.transactionBuilder.sendTrx(BACKEND_ADDRESS, 1000000 * (parseInt(document.getElementById("sumBuyPrice").textContent) + FEE_PRICE))
         var signedTx = await tron.trx.sign(tx)
@@ -250,11 +322,12 @@ async function buyTTS() {
         }))
         console.log(broadcastTx)
     } else if (!HEALTH) {
-        alert("There is a connection Issue to Backend, please come back")//todo show modal
-    } else if (!tron) {
-        alert("There is a connection Issue to wallet, please come back with a wallet")//todo show modal
-    } else {
+        showMessage("There is a connection Issue to Backend, please come back!")
 
-        alert("Less than our Minimum Fee")//todo show modal
+    } else if (!tron) {
+        showMessage("There is a connection Issue to wallet, please come back with a wallet!")
+
+    } else {
+        showMessage("Less than our Minimum Fee")
     }
 }

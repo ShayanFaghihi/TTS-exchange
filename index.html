@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/all.css">
-          
+
     <link href="" rel="stylesheet">
     <script src="js/lib/ethers-5.0.umd.min.js"
             type="application/javascript"></script>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/lib/jquery-3.5.1.slim.min.js"></script>
     <script src="js/lib/bootstrap.bundle.min.js"></script>
-    <title>TTS</title>
+    <title>T.T.S Token Exchanger</title>
 
 </head>
 <body>
@@ -37,12 +37,14 @@
             <nav class="nav d-flex">
                 <ul class="nav__list nav__list--primary d-flex">
 
-                    <li class="nav__item"><a href="https://tronscan.org/#/token20/TZ9BUwiQqk3dDNCW78LARaaDhHScwUu7Qq"
+                    <li class="nav__item"><a target="_blank"
+                                             href="https://tronscan.org/#/token20/TZ9BUwiQqk3dDNCW78LARaaDhHScwUu7Qq"
                                              class="nav__link" id="contract">Contract</a></li>
-                    <li class="nav__item"><a href="https://tts.best/whitepaper.pdf" class="nav__link" id="whitePaper">White
+                    <li class="nav__item"><a target="_blank" href="https://tts.best/whitepaper.pdf" class="nav__link"
+                                             id="whitePaper">White
                         Paper</a></li>
-                    <li class="nav__item"><a href="https://tts.best"
-                                             class="nav__link" id="home">Home Page</a></li>
+                    <li class="nav__item"><a target="_blank" href="https://tts.best"
+                                             class="nav__link" id="home">Production</a></li>
                 </ul>
                 <ul class="nav__list nav__list--secondary">
                     <li class="nav__item">
@@ -85,10 +87,14 @@
 
             <nav class="mobile-nav">
                 <ul class="mobile-nav__list d-flex">
-                    <li class="mobile-nav__item"><a href="" class="mobile-nav__link" id="contract">Contract</a></li>
-                    <li class="mobile-nav__item"><a href="" class="mobile-nav__link" id="whitePaper">White Paper</a></li>
+                    <li class="mobile-nav__item"><a target="_blank" href="" class="mobile-nav__link" id="contract">Contract</a>
+                    </li>
+                    <li class="mobile-nav__item"><a target="_blank" href="" class="mobile-nav__link" id="whitePaper">White
+                        Paper</a>
+                    </li>
 
-                    <li class="mobile-nav__item"><a href="" class="mobile-nav__link" id="home">Home Page</a></li>
+                    <li class="mobile-nav__item"><a target="_blank" href="" class="mobile-nav__link" id="home">Production</a>
+                    </li>
                 </ul>
             </nav>
             <div class="mobile-nav__lang">
@@ -117,14 +123,11 @@
     </div>
     <!-- Hero Box -->
     <div class="hero">
-       <div class="container">
-           
-                <h1 class="txt-center" id="header">Welcome</h1>
-                <p id="cta" class="txt-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
-                    accusantium minima modi soluta perspiciatis? Eligendi error dignissimos blanditiis eveniet laborum amet
-                    omnis, sunt culpa facere nisi beatae, ipsam totam veritatis.</p>
-        
-       </div>
+        <div class="container">
+
+            <h1 class="txt-center" id="header">Welcome</h1>
+
+        </div>
 
     </div>
 </header>
@@ -164,28 +167,46 @@
                 </div>
             </div>
 
-        <!-- Balance Top Fields -->
+            <!-- Balance Top Fields -->
             <div class="balance">
 
-                
-                    <div class="balance-table">
 
-                        <div class="balance-table__result">
-                            <span class="balance-table__label label-grey pos-left">Tron address:</span><label id="address">No Address</label>
-                            
-                        </div>
-                        <div class="balance-table__result">
-                            <span class="balance-table__label label-grey pos-left">TTS Balance:</span><label id="tts-balance">0</label>
-                            
-                        </div>
-                        <div class="balance-table__result">
-                            <span class="balance-table__label label-grey pos-left">Tron Balance:</span><label id="tron-balance">0</label></b>
-                            
-                        </div>
+                <div class="balance-table">
 
-                   
+                    <div class="balance-table__result">
+                        <span class="balance-table__label label-grey pos-left">Your Tron address:</span><label
+                            id="address">No
+                        Address</label>
 
                     </div>
+                    <div class="balance-table__result">
+                        <span class="balance-table__label label-grey pos-left">Your T.T.S Balance:</span><label
+                            id="tts-balance">0</label>
+
+                    </div>
+                    <div class="balance-table__result">
+                        <span class="balance-table__label label-grey pos-left">Your Tron Balance:</span><label
+                            id="tron-balance">0</label></b>
+
+                    </div>
+                    <div class="balance-table__result">
+                        <span class="balance-table__label label-grey pos-left">Total Minted T.T.S:</span><label
+                            id="total-tts-minted">0</label></b>
+
+                    </div>
+                    <div class="balance-table__result">
+                        <span class="balance-table__label label-grey pos-left">Total T.T.S in Bank:</span><label
+                            id="total-tts-bank">0</label></b>
+
+                    </div>
+                    <div class="balance-table__result">
+                        <span class="balance-table__label label-grey pos-left">Total Tron in Bank:</span><label
+                            id="total-tron-bank">0</label></b>
+
+                    </div>
+
+
+                </div>
             </div>
 
             <!-- Main Transaction Tables  -->
@@ -197,7 +218,7 @@
                     <!-- The start and end point currencies -->
                     <!-- These variables must be set based on customer choise -->
                     <h5 class="exchange__header">
-                        <span class="pri-token">TTS</span> <!--First Variable (start) -->
+                        <span class="pri-token">T.T.S</span> <!--First Variable (start) -->
                         / <span class="sec-token">  TRX</span> ≈  <!--Second Variable -->
                         <span id="buyPrice1"></span>  <!--Currencies Rate-->
                     </h5>
@@ -207,7 +228,8 @@
                     <form action="" method="post" class="exchange__form">
                         <div class="exchange__form--field">
                             <span class="exchange__form--label label-gold pos-left" id="price">Price</span>
-                            <label type="text" name="ex-buy-price" id="buyPrice" class="exchange__form--text" onchange="calcBuyTTSValue()">Fetching</label>
+                            <label type="text" name="ex-buy-price" id="buyPrice" class="exchange__form--text"
+                                   onchange="calcBuyTTSValue()">Fetching</label>
                             <span class="exchange__form--label label-gold   sec-token pos-right">TRX</span>
                         </div>
                         <div class="exchange__form--field">
@@ -215,7 +237,7 @@
                             <input type="text" name="ex-buy-price" id="buyAmount" oninput="calcBuyTTSValue()"
                                    class="exchange__form--input"
                                    placeholder="0">
-                            <span class="exchange__form--label label-gold pri-token pos-right">TTS</span>
+                            <span class="exchange__form--label label-gold pri-token pos-right">T.T.S</span>
                         </div>
 
                         <div class="exchange__form--result">
@@ -226,11 +248,11 @@
 
                         <div style="text-align: center;">
                             <button type="button" class="btn btn-buy" onclick="buyTTS()"><span id="buy">BUY </span><span
-                                    class="pri-token">TTS</span>
+                                    class="pri-token">T.T.S</span>
                             </button>
 
                         </div>
-                        <div class="subtitle txt-center"><span id="fee">0 trading fee for all orders</span></div>
+                        <div class="subtitle txt-center"><span id="fee">1-3 trading fee for all orders</span></div>
                     </form>
 
                 </div>
@@ -243,7 +265,7 @@
                     <!-- The start and end point currencies -->
                     <!-- These variables must be set based on customer choise -->
                     <h5 class="exchange__header">
-                        <span class="pri-token">TTS</span> <!--First Variable (start) -->
+                        <span class="pri-token">T.T.S</span> <!--First Variable (start) -->
                         / <span class="sec-token">TRX</span> ≈  <!--Second Variable -->
                         <span id="sellPrice1"></span>  <!--Currencies Rate-->
                     </h5>
@@ -259,7 +281,7 @@
                             <span class="exchange__form--label label-grey pos-left" id="amount">Amount</span>
                             <input type="text" name="ex-sell-amount" id="sellAmount" class="exchange__form--input"
                                    placeholder="0" oninput="calcSellTTSValue()">
-                            <span class="exchange__form--label label-grey pri-token pos-right">TTS</span>
+                            <span class="exchange__form--label label-grey pri-token pos-right">T.T.S</span>
                         </div>
 
                         <div class="exchange__form--result">
@@ -271,9 +293,9 @@
                         <div style="text-align: center;">
                             <button type="button" class="btn btn-sell" onclick="sellTTS()"><span
                                     id="sell">SELL </span><span
-                                    class="pri-token">TTS</span></button>
+                                    class="pri-token">T.T.S</span></button>
                         </div>
-                        <div class="subtitle txt-center"><span id="fee">1-3 trading fee for all orders</span></div>
+                        <div class="subtitle txt-center"><span id="fee">1-3 Trx trading fee for all orders</span></div>
                     </form>
 
                 </div>
@@ -286,56 +308,63 @@
         </div>
     </div>
 
-     <!-- Trigger/Open The Modal -->
-        <button id="myBtn">Open Modal</button>
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn">Open Modal</button>
 
-       <!-- The Modal -->
-        <div id="myModal" class="modal">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
 
-            <!-- Modal content -->
-            <div class="modal-content">
+        <!-- Modal content -->
+        <div class="modal-content">
             <div class="modal-header">
                 <span class="modal-close">&times;</span>
             </div>
-            <div class="modal-body">
-                <p>Some text in the Modal Body</p>
-                <p>Some other text...</p>
+            <div id="textError" class="modal-body">
+
             </div>
-            </div>
-        
         </div>
-</div> 
+
+    </div>
+    </div>
 </main>
 
 <footer class="footer">
     <div class="footer__top">
-        
+
         <div class="container row">
             <div class="footer__links">
                 <nav class="nav">
                     <ul class="nav__list">
-                        <li class="nav__item"><a href="https://tronscan.org/#/token20/TZ9BUwiQqk3dDNCW78LARaaDhHScwUu7Qq"
+                        <li class="nav__item"><a target="_blank"
+                                                 href="https://tronscan.org/#/token20/TZ9BUwiQqk3dDNCW78LARaaDhHScwUu7Qq"
                                                  class="nav__link" id="contract">Contract</a></li>
-                        <li class="nav__item"><a href="https://tts.best/whitepaper.pdf" class="nav__link" id="whitePaper">White
+                        <li class="nav__item"><a target="_blank" href="https://tts.best/whitepaper.pdf"
+                                                 class="nav__link"
+                                                 id="whitePaper">White
                             Paper</a></li>
-                        <li class="nav__item"><a href="https://tts.best/whitepaper.pdf" class="nav__link" id="home">Home</a></li>
+                        <li class="nav__item"><a target="_blank" href="https://tts.best/whitepaper.pdf"
+                                                 class="nav__link"
+                                                 id="home">Production</a></li>
                     </ul>
                 </nav>
-    
-    
+
+
             </div>
             <div class="footer_social d-flex">
             </div>
             <div class="footer__support">
-                <a class="btn btn-light btn-small" href="https://t.me/ttstoken"><i class="fas fa-user"></i>Support</a>
+                <a target="_blank" class="btn btn-light btn-small" href="https://t.me/ttstoken"><i
+                        class="fas fa-user"></i>Support</a>
             </div>
         </div>
-        
+
     </div>
     <div class="footer__bottom">
         <div class="container row">
             <p><strong>Copyright 2020 TrustTron</strong></p>
-            <p>Contract: <a style="color:#fff" href="https://tronscan.org/#/token20/TZ9BUwiQqk3dDNCW78LARaaDhHScwUu7Qq">TZ9BUwiQqk3dDNCW78LARaaDhHScwUu7Qq</a></p>
+            <p>Contract: <a target="_blank" style="color:#fff"
+                            href="https://tronscan.org/#/token20/TZ9BUwiQqk3dDNCW78LARaaDhHScwUu7Qq">TZ9BUwiQqk3dDNCW78LARaaDhHScwUu7Qq</a>
+            </p>
         </div>
     </div>
 </footer>
