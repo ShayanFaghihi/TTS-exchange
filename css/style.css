@@ -266,7 +266,9 @@ a {
   position: relative;;
 }
 
-.exchange__table {
+
+.exchange__table,
+.balance-table {
   border-radius: 20px;
   outline: none;
   background: none;
@@ -274,6 +276,38 @@ a {
   box-shadow: -7px -7px 20px 3px var(--shadow-light),
                7px 7px 22px 3px var(--shadow--dark);
   margin-bottom: 5rem;
+}
+
+.balance {
+  width: 50%;
+  margin: 0 auto;
+}
+.balance-table__result {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: .6rem;
+  margin-bottom: 1rem;
+  margin-top: .2rem;
+  border-radius: 7px;
+  box-shadow: inset 2px 2px 5px 3px var(--shadow--dark),
+              inset  -5px -5px 5px 2px var(--shadow-light)
+  ;
+  width: 100%;
+  position: relative;
+}
+.balance-table label {
+  padding-left: 54px;
+}
+.balance-table__label {
+  outline: none;
+  border-radius: 5px;
+  padding: .8rem;
+  position: absolute;
+  top: 0;
+  font-weight: 700;
 }
 
 .exchange__header {
@@ -312,7 +346,8 @@ a {
   color: var(--grey-font-dark) !important;
 }
 
-.exchange__form--input {
+.exchange__form--input,
+.exchange__form--text {
   width: 100%;
   padding: 1rem 77px;
   border-radius: 7px;
@@ -326,6 +361,8 @@ a {
   margin-right: auto;
   margin-left: auto;
 }
+
+.exchange__form--text{filter: opacity(.5);}
 
 .exchange__filter {
   margin-bottom: 5rem;
@@ -346,7 +383,7 @@ a {
   margin-bottom: 2rem;
   margin-top: 5rem;
   border-radius: 7px;
-  box-shadow: inset 5px 5px 5px 2px var(--shadow--dark),
+  box-shadow: inset 2px 2px 5px 3px var(--shadow--dark),
               inset  -5px -5px 5px 2px var(--shadow-light)
   ;
 }
@@ -420,11 +457,16 @@ canvas{
 
 
 /* -----------Footer-------------------- */
-.footer {
-  background-color: #222;
+.footer__top {
+  background-color: #333;
   padding: 4rem 0;
 }
 
 .footer .row {
   align-items: center;
+}
+
+.footer__bottom {
+  padding: 2rem 0;
+  background-color: #111;
 }

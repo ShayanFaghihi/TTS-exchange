@@ -7,6 +7,7 @@
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
           integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+          
     <link href="" rel="stylesheet">
     <script src="js/lib/ethers-5.0.umd.min.js"
             type="application/javascript"></script>
@@ -156,12 +157,31 @@
 
                 </div>
             </div>
-            <div>
-                AAAA:<label id="address">No Address</label><br>
-                BBBBB:<label id="tts-balance">0</label><br>
-                CCCCC:<label id="tron-balance">0</label><br>
 
+        <!-- Balance Top Fields -->
+            <div class="balance">
+
+                <div class="container">
+                    <div class="balance-table">
+
+                        <div class="balance-table__result">
+                            <span class="balance-table__label label-grey pos-left">AAA:</span><label id="address">No Address</label>
+                            
+                        </div>
+                        <div class="balance-table__result">
+                            <span class="balance-table__label label-grey pos-left">BBB:</span><label id="tts-balance">0</label>
+                            
+                        </div>
+                        <div class="balance-table__result">
+                            <span class="balance-table__label label-grey pos-left">CCC:</span><label id="tron-balance">0</label></b>
+                            
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
+
             <!-- Main Transaction Tables  -->
             <div class="exchange__tables row">
 
@@ -181,7 +201,7 @@
                     <form action="" method="post" class="exchange__form">
                         <div class="exchange__form--field">
                             <span class="exchange__form--label label-gold pos-left" id="price">Price</span>
-                            <label type="text" name="ex-buy-price" id="buyPrice" class="exchange__form--input" onchange="calcBuyTTSValue()">Fetching</label>
+                            <label type="text" name="ex-buy-price" id="buyPrice" class="exchange__form--text" onchange="calcBuyTTSValue()">Fetching</label>
                             <span class="exchange__form--label label-gold   sec-token pos-right">TRX</span>
                         </div>
                         <div class="exchange__form--field">
@@ -226,7 +246,7 @@
                     <form action="" method="post" class="exchange__form">
                         <div class="exchange__form--field sell-field">
                             <span class="exchange__form--label label-grey pos-left" id="price">Price</span>
-                            <label type="text" name="ex-sell-price" id="sellPrice" class="exchange__form--input">Fetching...
+                            <label type="text" name="ex-sell-price" id="sellPrice" class="exchange__form--text">Fetching...
                                 <span class="exchange__form--label label-grey sec-token pos-right">TRX</span>
                         </div>
                         <div class="exchange__form--field sell-field">
@@ -262,29 +282,40 @@
 </main>
 
 <footer class="footer">
-    <div class="container row">
-        <div class="footer__links">
-            <nav class="nav">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="https://tronscan.org/#/token20/TZ9BUwiQqk3dDNCW78LARaaDhHScwUu7Qq"
-                                             class="nav__link" id="contract">Contract</a></li>
-                    <li class="nav__item"><a href="https://tts.best/whitepaper.pdf" class="nav__link" id="whitePaper">White
-                        Paper</a></li>
-                </ul>
-            </nav>
-
-
+    <div class="footer__top">
+        
+        <div class="container row">
+            <div class="footer__links">
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="https://tronscan.org/#/token20/TZ9BUwiQqk3dDNCW78LARaaDhHScwUu7Qq"
+                                                 class="nav__link" id="contract">Contract</a></li>
+                        <li class="nav__item"><a href="https://tts.best/whitepaper.pdf" class="nav__link" id="whitePaper">White
+                            Paper</a></li>
+                    </ul>
+                </nav>
+    
+    
+            </div>
+            <div class="footer_social d-flex">
+                <a href="#" class="footer__social--link">
+                    <a href="#" class="fa fa-facebook"></a>
+                </a>
+            </div>
+            <div class="footer__support">
+                <a class="btn btn-light btn-small" href="https://t.me/ttstoken"><i class="fas fa-user"></i>Support</a>
+            </div>
         </div>
-        <div class="footer_social d-flex">
-            <a href="#" class="footer__social--link">
-
-            </a>
-        </div>
-        <div class="footer__support">
-            <a class="btn btn-light btn-small" href="https://t.me/ttstoken"><i class="fas fa-user"></i>Support</a>
+        
+    </div>
+    <div class="footer__bottom">
+        <div class="container row">
+            <p><strong>Copyright 2020 TrustTron</strong></p>
+            <p>Contract: <a style="color:#fff" href="https://tronscan.org/#/token20/TZ9BUwiQqk3dDNCW78LARaaDhHScwUu7Qq">TZ9BUwiQqk3dDNCW78LARaaDhHScwUu7Qq</a></p>
         </div>
     </div>
 </footer>
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
