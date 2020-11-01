@@ -45,12 +45,12 @@
     background-color: var(--green-main);
     color: var(--grey-font);
     line-height: 1.7;
-    font-size: 1rem;
+    font-size: 1.3rem;
 }
   
 h1, h2, h3, h4, h5, h6,input, textarea {
   font-family: "Lato",sans-serif !important;
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 
 p {
@@ -117,7 +117,7 @@ a {
    5px 6px 6px -1px var(--shadow--dark)
   ;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   letter-spacing: 5px;
   display: inline-block;
   cursor: pointer;
@@ -151,7 +151,7 @@ a {
 }
 
 .subtitle {
-  font-size: .9rem;
+  font-size: 1.2rem;
   margin-top: 1rem;
   letter-spacing: .9px;
   color: var(--grey-main);
@@ -348,7 +348,7 @@ a {
   border: none;
   outline: none;
   background: none;
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: 700;
   padding: .6rem;
   margin-bottom: 3rem;
@@ -470,7 +470,7 @@ a {
   border: none;
   outline: none;
   background: none;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: 1.5px;
   padding: 1rem;
@@ -523,7 +523,7 @@ canvas{
 
 
 .js-count-particles{
-  font-size: 1.1em;
+  font-size: 1.6em;
 }
 
 #stats,

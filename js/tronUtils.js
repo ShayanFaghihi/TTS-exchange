@@ -194,8 +194,11 @@ initTronWebInstance().then(function (tronWeb) {
     alert("No Tron Wallet detected!")//todo show modal
 });
 
+var modal = document.getElementById("myModal");
 
 function sellTTS() {
+
+    modal.style.display = "block";
     if (document.getElementById("sumSellPrice").textContent > FEE_PRICE) {
         if (tron) {
             console.log(document.getElementById("sellAmount").value)
@@ -209,7 +212,8 @@ function sellTTS() {
             alert("No Tron Wallet detected!")//todo show modal
         }
     } else {
-        alert("You Have to buy more than our Fee Value!")//todo show modal
+
+        //alert("You Have to buy more than our Fee Value!")//todo show modal
     }
 }
 

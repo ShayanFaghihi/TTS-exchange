@@ -240,7 +240,6 @@ var data = {
 
 
   // Get the modal
-  var modal = document.getElementById("myModal");
 
   // Get the button that opens the modal
   var modalBtn = document.getElementById("myBtn");
@@ -250,7 +249,6 @@ var data = {
 
   // When the user clicks on the button, open the modal
   modalBtn.onclick = function() {
-    modal.style.display = "block";
   }
 
   // When the user clicks on <span> (x), close the modal
