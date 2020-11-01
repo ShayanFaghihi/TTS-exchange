@@ -279,9 +279,17 @@ a {
 }
 
 .balance {
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
 }
+
+@media (min-width:760px) {
+  .balance {
+    width: 50%;
+  }
+}
+
+
 .balance-table__result {
   border: none;
   outline: none;
@@ -289,7 +297,8 @@ a {
   font-size: 1rem;
   font-weight: 700;
   padding: .6rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
+  text-align: center;
   margin-top: .2rem;
   border-radius: 7px;
   box-shadow: inset 2px 2px 5px 3px var(--shadow--dark),
@@ -299,15 +308,35 @@ a {
   position: relative;
 }
 .balance-table label {
-  padding-left: 54px;
+  padding-left: 0px;
+  overflow-wrap: anywhere;
 }
+
+@media (min-width:760px) {
+  .balance-table label {
+    padding-left: 126px;
+  }
+  .balance-table__result {
+    padding: .6rem;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+}
+
 .balance-table__label {
   outline: none;
   border-radius: 5px;
-  padding: .8rem;
+  padding: .1rem;
   position: absolute;
-  top: 0;
+  top: -20px;
   font-weight: 700;
+}
+
+@media (min-width:760px) {
+  .balance-table__label {
+    padding: .8rem;
+    top: 0px;
+  }
 }
 
 .exchange__header {
