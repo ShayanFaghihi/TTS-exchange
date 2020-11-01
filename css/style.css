@@ -683,3 +683,21 @@ canvas{
   padding-top: 20px;
   font-weight: 700;
 }
+
+
+.modal-body__btn {
+  padding: 13px 16px;
+  color: var(--grey-font-dark);
+  text-align: center;
+  font-weight: 700;
+  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+  border: none;
+  outline: none;
+  background-color: var(--brown);
+  transition: all .3s;
+}
+
+.modal-body__btn:hover {
+  color:#fff
+}
