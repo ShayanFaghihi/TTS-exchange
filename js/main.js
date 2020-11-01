@@ -41,6 +41,8 @@ const buy = document.querySelectorAll('#buy');
 const sell = document.querySelectorAll('#sell');
 const contract = document.querySelectorAll('#contract');
 const whitePaper = document.querySelectorAll('#whitePaper');
+
+const home = document.querySelectorAll('#home');
 const tradeFee = document.querySelectorAll('#fee');
 const header = document.querySelectorAll('#header');
 
@@ -88,6 +90,9 @@ link.forEach(el => {
     for(x of header) {
       x.textContent = data[attr].header;
     }
+    for(x of home) {
+      x.textContent = data[attr].home;
+    }
 
   });
 });
@@ -102,7 +107,8 @@ var data = {
     "fee" : "trading fee for all orders",
     "contract" : "Contract",
     "whitePaper" : "White Paper",
-    "header" : "Welcome"
+    "header" : "Welcome",
+    "home":"Home Page"
   },
   "fa":{
     "price" : "قیمت",
@@ -113,7 +119,9 @@ var data = {
     "fee" : "هزینه تراکنش سفارشات",
     "contract" : "قرارداد",
     "whitePaper" : "برگه سفید",
-    "header" : "خوش آمدید"
+    "header" : "خوش آمدید",
+    "home":"صفحه اول"
+
   },
   "es": {
     "price" : "Precio",
@@ -125,6 +133,8 @@ var data = {
     "contract" : "Contrato",
     "whitePaper" : "Papel blanco",
     "header" : "Bienvenida",
+
+    "home":"Home Page"
     },
   "ch": {
     "price" : "价钱",
@@ -136,6 +146,8 @@ var data = {
     "contract" : "合同",
     "whitePaper" : "白皮书",
     "header" : "欢迎",
+
+    "home":"Home Page"
     },
   "ru": {
     "price" : "цена",
@@ -147,6 +159,8 @@ var data = {
     "contract" : "договор",
     "whitePaper" : "белая бумага",
     "header" : "добро пожаловать",
+
+    "home":"Home Page"
     },
   "fr": {
     "price" : "Prix",
@@ -158,6 +172,8 @@ var data = {
     "contract" : "Contrat",
     "whitePaper" : "Papier blanc",
     "header" : "Bienvenue",
+
+    "home":"Home Page"
     },
   "it": {
     "price" : "Prezzo",
@@ -169,6 +185,7 @@ var data = {
     "contract" : "Contrarre",
     "whitePaper" : "Carta bianca",
     "header" : "Benvenuta",
+    "home":"Home Page"
     },
   "in": {
     "price" : "कीमत",
@@ -180,6 +197,7 @@ var data = {
     "contract" : "अनुबंध",
     "whitePaper" : "सफ़ेद कागज",
     "header" : "स्वागत हे",
+    "home":"Home Page"
     },
   "pr": {
     "price" : "Preço",
@@ -191,6 +209,7 @@ var data = {
     "contract" : "Contrato",
     "whitePaper" : "papel branco",
     "header" : "bem-vinda",
+    "home":"Home Page"
     },
   "ar": {
     "price" : "السعر",
@@ -202,6 +221,7 @@ var data = {
     "contract" : "عقد",
     "whitePaper" : "ورق ابيض",
     "header" : "أهلا بك",
+    "home":"Home Page"
     },
     "tr": {
       "price" : "Fiyat",
@@ -213,6 +233,7 @@ var data = {
       "contract" : "Sözleşme",
       "whitePaper" : "Beyaz kağıt",
       "header" : "Hoşgeldiniz",
+      "home":"Home Page"
       }
   }
 

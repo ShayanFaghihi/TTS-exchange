@@ -197,7 +197,7 @@ initTronWebInstance().then(function (tronWeb) {
 
 function sellTTS() {
     if (document.getElementById("sumSellPrice").textContent > FEE_PRICE) {
-        if (tron.defaultAddress.base58) {
+        if (tron) {
             console.log(document.getElementById("sellAmount").value)
             triggerContractCallArgs('approveAndCall', [EXCHANGER_CONTRACT, (document.getElementById("sellAmount")
                 .value * 1000000000000000000).toString(), "0x10"]).then(function (res) {
