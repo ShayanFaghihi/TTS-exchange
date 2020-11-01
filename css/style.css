@@ -564,6 +564,7 @@ canvas{
 .footer__top {
   background-color: #333;
   padding: 4rem 0;
+  text-align: center;
 }
 
 .footer .row {
@@ -572,11 +573,39 @@ canvas{
           align-items: center;
 }
 
+.footer__links {
+  margin-left: 40%;
+}
+
+@media (min-width:760px) {
+  .footer__links {
+    margin-left: 0;
+  }
+}
+
 .footer__bottom {
   padding: 2rem 0;
   background-color: #111;
 }
 
+.footer_social {
+  margin: 2rem 0;
+}
+
+.footer_social a {
+  color: #fff;
+  font-size: 2rem;
+  border-radius: 50%;
+  padding: 6px;
+  margin-right: 1.5rem;
+  text-decoration: none;
+  transition: all .5s;
+}
+
+.footer_social a:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
 
 /* Modal Box Styles */
 

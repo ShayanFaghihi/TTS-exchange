@@ -32,6 +32,10 @@ function token(id) {
 
 // Languages
 
+if(window.location.hash){
+  
+}
+
 
 const langEl = document.querySelector('.dropdown-menu');
 const link = document.querySelectorAll('[language]');
