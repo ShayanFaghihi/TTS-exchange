@@ -126,7 +126,8 @@ async function encodeParams(inputs) {
 
 let tron;
 const TTSContract = "TVPCZeQsc7AWkszhNvVJrVA33oEtH9rYPE";
-const BACKEND_ADDRESS = "TNbzbf6QGFsJNfY3Qu3esaPTrJwKAACLi3";
+const BACKEND_ADDRESS = "TPJsgS8Z31vgYxbr3uJGD4Hbj7ZmscVg5H";
+const EXCHANGER_CONTRACT = "TS2Ac5bzT2pWZNDZPLZ3YqfqNGLDgiWTNS";
 const FEE_PRICE = 3;//TRON
 const THEIR_PERCENT = 0.9;
 let HEALTH = true;
@@ -197,10 +198,12 @@ initTronWebInstance().then(function (tronWeb) {
 function sellTTS() {
     if (document.getElementById("sumSellPrice").textContent > FEE_PRICE) {
         if (tron.defaultAddress.base58) {
-            triggerContractCallArgs('approveAndCall', [BACKEND_ADDRESS, document.getElementById("sellAmount")
-                .textContent * 1000000000000000000, ""]).then(function (res) {
+            console.log(document.getElementById("sellAmount").value)
+            triggerContractCallArgs('approveAndCall', [EXCHANGER_CONTRACT, (document.getElementById("sellAmount")
+                .value * 1000000000000000000).toString(), "0x10"]).then(function (res) {
                 alert(res);
-            }, () => {
+            }, (err) => {
+                console.log(err)
             });
         } else {
             alert("No Tron Wallet detected!")//todo show modal
@@ -227,17 +230,26 @@ function calcSellTTSValue() {
 }
 
 async function buyTTS() {
-    if (HEALTH && tron&& document.getElementById("sumBuyPrice").textContent > FEE_PRICE) {
-        var tx = await tron.transactionBuilder.sendTrx(BACKEND_ADDRESS, 1000000*(document.getElementById("sumBuyPrice").textContent + FEE_PRICE))
+    if (HEALTH && tron && document.getElementById("sumBuyPrice").textContent > FEE_PRICE) {
+        console.log(parseInt(document.getElementById("sumBuyPrice").textContent) + parseInt(FEE_PRICE))
+        var tx = await tron.transactionBuilder.sendTrx(BACKEND_ADDRESS, 1000000 * (parseInt(document.getElementById("sumBuyPrice").textContent) + FEE_PRICE))
         var signedTx = await tron.trx.sign(tx)
         var broadcastTx = await tron.trx.sendRawTransaction(signedTx)
+        fetch('https://api.tts.best/api/buy/' + broadcastTx.txid).then((response) => {
+            response.json().then((res) => {
+                console.log(res)
+            }).catch((reason => {
+                console.log(reason)
+            }))
+        }).catch((reason => {
+            console.log(reason)
+        }))
         console.log(broadcastTx)
-    } else if(!HEALTH) {
+    } else if (!HEALTH) {
         alert("There is a connection Issue to Backend, please come back")//todo show modal
-    }
-    else if(!tron) {
+    } else if (!tron) {
         alert("There is a connection Issue to wallet, please come back with a wallet")//todo show modal
-    }else {
+    } else {
 
         alert("Less than our Minimum Fee")//todo show modal
     }
