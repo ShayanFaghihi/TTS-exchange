@@ -32,79 +32,6 @@ function token(id) {
 
 // Languages
 
-if(window.location.hash){
-  
-}
-
-
-const langEl = document.querySelector('.dropdown-menu');
-const link = document.querySelectorAll('[language]');
-
-const price = document.querySelectorAll('#price');
-const amount = document.querySelectorAll('#amount');
-const trade = document.querySelectorAll('#trade');
-const buy = document.querySelectorAll('#buy');
-const sell = document.querySelectorAll('#sell');
-const contract = document.querySelectorAll('#contract');
-const whitePaper = document.querySelectorAll('#whitePaper');
-
-const home = document.querySelectorAll('#home');
-const tradeFee = document.querySelectorAll('#fee');
-const header = document.querySelectorAll('#header');
-
-
-
-link.forEach(el => {
-
-     el.addEventListener('click', () => {
-    // langEl.querySelector('.active').classList.remove('active');
-    // el.classList.add('active');
-
-  
-
-    const attr = el.getAttribute('language');
-
-    for(x of price) {
-      x.textContent = data[attr].price;
-    }
-
-    for(x of amount) {
-      x.textContent = data[attr].amount;
-    }
-
-    for(x of trade) {
-      x.textContent = data[attr].tradeAmount;
-    }
-
-    for(x of buy) {
-      x.textContent = data[attr].buy;
-    }
-
-    for(x of sell) {
-      x.textContent = data[attr].sell;
-    }
-
-    for(x of contract) {
-      x.textContent = data[attr].contract;
-    }
-
-    for(x of whitePaper) {
-      x.textContent = data[attr].whitePaper;
-    }
-
-    for(x of tradeFee) {
-      x.textContent = data[attr].fee;
-    }
-
-    for(x of header) {
-      x.textContent = data[attr].header;
-    }
-    for(x of home) {
-      x.textContent = data[attr].home;
-    }
-
-  });
-});
 
 var data = {
   "en":{
@@ -247,6 +174,76 @@ var data = {
   }
 
 
+  window.onload = () => { 
+    const price = document.querySelectorAll('#price');
+    const amount = document.querySelectorAll('#amount');
+    const trade = document.querySelectorAll('#trade');
+    const buy = document.querySelectorAll('#buy');
+    const sell = document.querySelectorAll('#sell');
+    const contract = document.querySelectorAll('#contract');
+    const whitePaper = document.querySelectorAll('#whitePaper');
+
+    const home = document.querySelectorAll('#home');
+    const tradeFee = document.querySelectorAll('#fee');
+    let header = document.querySelectorAll('#header');
+
+    if(window.location.hash) {
+      let lanInHash = window.location.hash;
+      lanInHash = lanInHash.replace("#","");
+
+
+       for(x of price) {
+        x.textContent = data[lanInHash].price;
+      }
+  
+      for(x of amount) {
+        x.textContent = data[lanInHash].amount;
+      }
+  
+      for(x of trade) {
+        x.textContent = data[lanInHash].tradeAmount;
+      }
+  
+      for(x of buy) {
+        x.textContent = data[lanInHash].buy;
+      }
+  
+      for(x of sell) {
+        x.textContent = data[lanInHash].sell;
+      }
+  
+      for(x of contract) {
+        x.textContent = data[lanInHash].contract;
+      }
+  
+      for(x of whitePaper) {
+        x.textContent = data[lanInHash].whitePaper;
+      }
+  
+      for(x of tradeFee) {
+        x.textContent = data[lanInHash].fee;
+      }
+  
+      for(x of header) {
+        x.textContent = data[lanInHash].header;
+      }
+      for(x of home) {
+        x.textContent = data[lanInHash].home;
+      }
+    }
+
+    
+  } 
+  
+  var reload = document.querySelectorAll('.reload');
+
+for( i = 0 ; i <= reload.length ; i++){
+    reload[i].onclick = function(){
+        window.location.hash = this.getAttribute('href');
+        window.location.reload();
+    }
+}
+  
 
   // Get the modal
 
