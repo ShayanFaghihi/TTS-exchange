@@ -630,7 +630,7 @@ canvas{
   border: none;
   outline: none;
   border-radius: 7px;
-  width: 30%;
+  width: min(70%,400px);
   min-height: 20rem;
   -webkit-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
           box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
